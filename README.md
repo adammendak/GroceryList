@@ -1,2 +1,5 @@
 # GroceryList
-grocery list for Java EE Postgraduate
+grocery list for Java EE Postgraduate Studies.
+
+# Collaborators
+Elżbieta Dutkiewicz, Adam Mendak
