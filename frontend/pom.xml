@@ -11,12 +11,8 @@
 
     <artifactId>frontend</artifactId>
     <version>0.0.1</version>
-    <name>frontend</name>
-    <description>FrontEnd of the Application</description>
-
-    <properties>
-        <java.version>1.8</java.version>
-    </properties>
+    <name>Frontend</name>
+    <description>Front-End of the Application</description>
 
     <dependencies>
         <dependency>
