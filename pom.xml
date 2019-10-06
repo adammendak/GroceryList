@@ -8,15 +8,14 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.1.9.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath/>
     </parent>
 
-    <groupId>groupId</groupId>
-    <artifactId>GroceryList</artifactId>
+    <groupId>com.grocerylist</groupId>
+    <artifactId>root</artifactId>
+    <packaging>pom</packaging>
     <version>0.0.1</version>
     <name>Root</name>
-
-    <packaging>pom</packaging>
 
     <modules>
         <module>core</module>
@@ -31,13 +30,4 @@
         </dependency>
     </dependencies>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
-    
 </project>
