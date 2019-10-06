@@ -1,5 +1,9 @@
 # GroceryList
-grocery list Project for Java EE Postgraduate Studies
+Grocery list project for Java EE Postgraduate Studies
+
+# Usage
+In root folder <code>mvn clean install</code>
+
 
 # Modules 
 
