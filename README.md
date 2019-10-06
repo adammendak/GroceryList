@@ -1,5 +1,5 @@
 # GroceryList
-grocery list Project for Java EE Postgraduate Studies.
+grocery list Project for Java EE Postgraduate Studies
 
 #Modules <br> 
 
