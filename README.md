@@ -1,7 +1,7 @@
 # GroceryList
 grocery list Project for Java EE Postgraduate Studies
 
-#Modules <br> 
+# Modules 
 
 Front End - place where front end resides <br>
 Core - core servies of backend - transactions <br>
