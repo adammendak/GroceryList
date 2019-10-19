@@ -1,11 +1,13 @@
 package com.grocerylist.repository;
 
-import com.grocerylist.constants.Unit;
+import com.grocerylist.constant.Unit;
 import com.grocerylist.model.*;
 
 import java.util.List;
 
 public interface Repository {
+
+    //todo implement in com.grocerylist.core.repository module
 
     List<Dish> getDishes();
     List<Ingredient> getIngredients();

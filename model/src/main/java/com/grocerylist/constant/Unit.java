@@ -1,4 +1,4 @@
-package com.grocerylist.constants;
+package com.grocerylist.constant;
 
 import lombok.AllArgsConstructor;
 
@@ -27,7 +27,7 @@ public enum Unit {
     SLICE("Slice"),
     SPRING("Spring"),
     TABLESPOON("Tablespoon"),
-    TESPOON("Teaspoon");
+    TEASPOON("Teaspoon");
 
     private String value;
 
