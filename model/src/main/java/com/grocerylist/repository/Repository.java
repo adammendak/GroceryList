@@ -1,5 +1,6 @@
 package com.grocerylist.repository;
 
+import com.grocerylist.constants.Unit;
 import com.grocerylist.model.*;
 
 import java.util.List;

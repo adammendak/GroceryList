@@ -1,5 +1,6 @@
 package com.grocerylist.model;
 
+import com.grocerylist.constants.Unit;
 import lombok.Data;
 
 import java.util.List;
