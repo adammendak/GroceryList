@@ -2,12 +2,8 @@ package com.grocerylist.model;
 
 import com.grocerylist.constants.Unit;
 import lombok.Data;
-import org.springframework.data.annotation.Id;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Data
 @Entity
@@ -18,8 +14,8 @@ public class Ingredient {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Product product;
-    private double quantity;
-    private Unit unit;
+//    private Product product;
+//    private double quantity;
+//    private Unit unit;
 
 }

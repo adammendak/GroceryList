@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface Repository {
 
-    //todo implement in different classes as spring data interface with querydsl impl
+    //todo implement in different classes in spring data interface with querydsl impl
 
     List<Dish> getDishes();
     List<Ingredient> getIngredients();

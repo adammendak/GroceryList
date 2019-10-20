@@ -1,10 +1,10 @@
 package com.grocerylist.model;
 
 import lombok.Data;
-import org.springframework.data.annotation.Id;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
 @Data
@@ -15,9 +15,9 @@ public abstract class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String login;
-    private String email;
-    private String passwordHash;
+//    private String login;
+//    private String email;
+//    private String passwordHash;
 
     // TODO: zaimplementować
 
