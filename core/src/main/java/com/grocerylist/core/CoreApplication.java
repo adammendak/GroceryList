@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
 @EntityScan(basePackages = "com.grocerylist.model")
-@EnableJpaRepositories(basePackages = "com.grocerylist.core.repository")
+@EnableJpaRepositories(basePackages = "com.grocerylist.dao.repository")
 public class CoreApplication {
 
     public static void main(String[] args) {

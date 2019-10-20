@@ -1,4 +1,4 @@
-package com.grocerylist.core.repository;
+package com.grocerylist.dao.repository;
 
 import com.grocerylist.model.Dish;
 import org.springframework.data.jpa.repository.JpaRepository;

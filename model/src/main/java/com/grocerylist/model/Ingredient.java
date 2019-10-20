@@ -1,6 +1,5 @@
 package com.grocerylist.model;
 
-import com.grocerylist.constants.Unit;
 import lombok.Data;
 
 import javax.persistence.*;
