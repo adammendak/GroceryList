@@ -3,5 +3,5 @@ package com.grocerylist.dto;
 import lombok.Data;
 
 @Data
-public class ProductDto {
+public class DishCategoryDto {
 }
