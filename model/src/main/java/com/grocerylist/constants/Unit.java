@@ -1,4 +1,4 @@
-package com.grocerylist.constant;
+package com.grocerylist.constants;
 
 import lombok.AllArgsConstructor;
 

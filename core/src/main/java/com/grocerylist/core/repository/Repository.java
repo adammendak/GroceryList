@@ -1,13 +1,13 @@
-package com.grocerylist.repository;
+package com.grocerylist.core.repository;
 
-import com.grocerylist.constant.Unit;
+import com.grocerylist.constants.Unit;
 import com.grocerylist.model.*;
 
 import java.util.List;
 
 public interface Repository {
 
-    //todo implement in com.grocerylist.core.repository module
+    //todo implement in different classes as spring data interface with querydsl impl
 
     List<Dish> getDishes();
     List<Ingredient> getIngredients();

@@ -1,6 +1,6 @@
 package com.grocerylist.model;
 
-import com.grocerylist.constant.Unit;
+import com.grocerylist.constants.Unit;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 
