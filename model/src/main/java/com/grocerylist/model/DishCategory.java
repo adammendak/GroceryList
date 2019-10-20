@@ -13,6 +13,6 @@ public class DishCategory {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-//    private String name;
-//    private String photoURL;
+    @Column(name = "NAME", nullable = false)
+    private String name;
 }

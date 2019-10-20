@@ -14,12 +14,34 @@ public class Dish {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-//    private List<Ingredient> ingredients;
-//    private String description;
-//    private int prepareTime;
-//    private String difficultyLevel;
-//    private int numberOfServings;
-//    private List<DishCategory> categories;
-//    private String photoURL;
+    @Column(name = "DESCRIPTION")
+    private String description;
+
+    @Column(name = "PREPARE_TIME")
+    private Integer prepareTime;
+
+    @Column(name = "DIFFICULTY_LEVEL")
+    private String difficultyLevel;
+
+    @Column(name = "NUMBER_OF_SERVINGS")
+    private Integer numberOfServings;
+
+    @Column(name = "PHOTO-URL")
+    private String photoURL;
+
+    @ManyToMany
+    @JoinTable(name = "DISH_DISH_CATEGORY",
+            joinColumns = @JoinColumn(name = "dish_id"),
+            inverseJoinColumns = @JoinColumn(name = "dish_category_id")
+    )
+    private List<DishCategory> categories;
+
+    @ManyToMany
+    @JoinTable(name = "DISH_INGREDIENT",
+            joinColumns = @JoinColumn(name = "dish_id"),
+            inverseJoinColumns = @JoinColumn(name = "ingredient_id")
+    )
+    private List<Ingredient> ingredients;
+
 
 }

@@ -4,6 +4,7 @@ import com.grocerylist.constants.Unit;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @Entity
@@ -14,8 +15,14 @@ public class Ingredient {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-//    private Product product;
-//    private double quantity;
-//    private Unit unit;
+    @Column(name = "QUANTITY")
+    private Double quantity;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "PRODUCT_ID")
+    private Product product;
+
+    @ManyToMany(mappedBy = "ingredients")
+    private List<Dish> dishes;
 
 }

@@ -2,10 +2,7 @@ package com.grocerylist.model;
 
 import lombok.Data;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
 
 @Data
 @MappedSuperclass
@@ -15,9 +12,14 @@ public abstract class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-//    private String login;
-//    private String email;
-//    private String passwordHash;
+    @Column(name = "LOGIN", nullable = false)
+    private String login;
+
+    @Column(name = "EMAIL", nullable = false)
+    private String email;
+
+    @Column(name = "PASSWORD_HASH", nullable = false)
+    private String passwordHash;
 
     // TODO: zaimplementować
 

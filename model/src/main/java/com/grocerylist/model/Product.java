@@ -15,8 +15,15 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-//    private String name;
-//    private ProductCategory category;
-//    private List<Unit> defaultUnits;
+    @Column(name = "NAME", nullable = false)
+    private String name;
+
+    @Column(name = "UNIT")
+    @Enumerated(EnumType.STRING)
+    private Unit unit;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "PRODUCT_CATEGORY_ID")
+    private ProductCategory productCategory;
 
 }
