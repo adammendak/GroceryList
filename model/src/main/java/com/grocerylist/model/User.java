@@ -20,6 +20,7 @@ public abstract class User {
 
     @Column(name = "PASSWORD_HASH", nullable = false)
     private String passwordHash;
+    //test
 
     // TODO: zaimplementować
 
