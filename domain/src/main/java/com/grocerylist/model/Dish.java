@@ -12,6 +12,10 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 public class Dish {
+
+    //TODO DELETE, use model module
+
+    private Long id;
     private List<String> categoriesList;
     private Integer difficultyLevel;
     private String recipe;

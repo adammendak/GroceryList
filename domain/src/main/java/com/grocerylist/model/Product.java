@@ -1,16 +1,23 @@
 package com.grocerylist.model;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @AllArgsConstructor
 @Getter
 @Setter
 @NoArgsConstructor
-public class LoginData {
+
+public class Product {
+
     //TODO DELETE, use model module
-    private String userName;
-    private String hashPassword;
+
+    private Long id;
+    private String name;
+    private List<Unit> units;
 }

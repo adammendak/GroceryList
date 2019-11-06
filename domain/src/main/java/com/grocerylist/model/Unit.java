@@ -9,8 +9,10 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class LoginData {
+
+public class Unit {
     //TODO DELETE, use model module
-    private String userName;
-    private String hashPassword;
+
+    private Long id;
+    private String name;
 }

@@ -11,6 +11,7 @@ import java.util.stream.Collectors;
 
 @Component
 public class DishMapper {
+    //TODO move to MODEL/mapper module
     private IngredientMapper ingredientMapper;
 
     public DishMapper(IngredientMapper ingredientMapper) {
@@ -18,8 +19,7 @@ public class DishMapper {
     }
 
     public Dish mapToDish(DishDto dishDto) {
-        List<Ingredient> ingredients = new ArrayList<>();
-        ingredients = dishDto
+        List<Ingredient> ingredients = dishDto
                 .getIngredients()
                 .stream()
                 .map(ingredientDto -> ingredientMapper.mapToIngredient(ingredientDto))

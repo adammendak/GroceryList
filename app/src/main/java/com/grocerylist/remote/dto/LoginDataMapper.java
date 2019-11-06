@@ -4,6 +4,7 @@ import com.grocerylist.model.LoginData;
 
 //@Mapper??
 public class LoginDataMapper {
+    //TODO move to MODEL/mapper module
     public LoginData mapToLoginData(LoginDataDto loginDataDto) {
         //TODO: implements support of Hash
         LoginData loginData = new LoginData();
