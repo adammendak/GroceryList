@@ -1,11 +1,16 @@
 package com.grocerylist.remote.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @AllArgsConstructor
 @Getter
-public enum Unit {;
+public class UnitDto {
+    @JsonProperty("id")
+    private Long id;
+    @JsonProperty("name")
+    private String name;
 //    BAG("Bag"),
 //    BAR("Bar"),
 //    BUNCH("Bunch"),
@@ -30,7 +35,4 @@ public enum Unit {;
 //    SPRING("Spring"),
 //    TABLESPOON("Tablespoon"),
 //    TEASPOON("Teaspoon");
-
-    private String value;
-
 }

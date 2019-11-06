@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 public class IngredientMapper {
     public Ingredient mapToIngredient (IngredientDto ingredientDto) {
         Ingredient ingredient = new Ingredient();
-//        ingredient.setName(ingredientDto.getName());
+        ingredient.setId(ingredientDto.getId());
         ingredient.setName(ingredientDto.getName());
         ingredient.setQuantity(ingredientDto.getQuantity());
         ingredient.setUnit(ingredientDto.getUnit());

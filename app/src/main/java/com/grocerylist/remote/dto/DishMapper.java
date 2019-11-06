@@ -18,8 +18,7 @@ public class DishMapper {
     }
 
     public Dish mapToDish(DishDto dishDto) {
-        List<Ingredient> ingredients = new ArrayList<>();
-        ingredients = dishDto
+        List<Ingredient> ingredients = dishDto
                 .getIngredients()
                 .stream()
                 .map(ingredientDto -> ingredientMapper.mapToIngredient(ingredientDto))

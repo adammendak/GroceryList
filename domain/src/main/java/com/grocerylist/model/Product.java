@@ -1,5 +1,6 @@
 package com.grocerylist.model;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,10 +13,9 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 
-public class Ingredient {
+public class Product {
 
     private Long id;
     private String name;
-    private String unit;
-    private int quantity;
+    private List<Unit> units;
 }
