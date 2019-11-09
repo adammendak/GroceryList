@@ -9,7 +9,7 @@ import java.time.LocalDate;
 @MappedSuperclass
 @Getter
 @Setter
-public class AbstractTimestampableEntity {
+public abstract class AbstractTimestampableEntity {
 
     @Column(name = "CREATED_AT")
     //todo dodac converter czasu na java.sql.date z javax pakietu
