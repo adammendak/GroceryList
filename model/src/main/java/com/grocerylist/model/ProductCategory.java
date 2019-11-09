@@ -7,7 +7,7 @@ import javax.persistence.*;
 @Data
 @Entity
 @Table(name = "PRODUCT_CATEGORY")
-public class ProductCategory {
+public class ProductCategory extends AbstractTimestampableEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

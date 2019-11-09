@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Data
 @MappedSuperclass
-public abstract class User {
+public abstract class User extends AbstractTimestampableEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

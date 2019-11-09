@@ -8,7 +8,7 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "INGREDIENT")
-public class Ingredient {
+public class Ingredient extends AbstractTimestampableEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

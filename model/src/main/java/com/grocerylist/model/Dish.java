@@ -8,7 +8,7 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "DISH")
-public class Dish {
+public class Dish extends AbstractTimestampableEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
