@@ -11,12 +11,10 @@ import java.time.LocalDate;
 @Setter
 public class AbstractTimestampableEntity {
 
-    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "CREATED_AT")
     //todo dodac converter czasu na java.sql.date z javax pakietu
     private LocalDate createdAt;
 
-    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "UPDATED_AT")
     private LocalDate updatedAt;
 
