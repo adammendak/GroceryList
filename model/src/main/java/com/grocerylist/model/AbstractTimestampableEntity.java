@@ -1,43 +1,32 @@
 package com.grocerylist.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
 @MappedSuperclass
+@Getter
+@Setter
 public class AbstractTimestampableEntity {
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "created_at")
+    @Column(name = "CREATED_AT")
+    //todo dodac converter czasu na java.sql.date z javax pakietu
     private LocalDate createdAt;
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "updated_at")
+    @Column(name = "UPDATED_AT")
     private LocalDate updatedAt;
 
     @PrePersist
     protected void onCreate() {
-        this.setCreatedAt(this.setUpdatedAt(LocalDate.now()));
+        this.setCreatedAt(LocalDate.now());
     }
 
     @PreUpdate
     protected void onUpdate() {
         this.setUpdatedAt(LocalDate.now());
-    }
-
-    public LocalDate getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDate createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public LocalDate getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public LocalDate setUpdatedAt(LocalDate updatedAt) {
-        this.updatedAt = updatedAt;
-        return updatedAt;
     }
 }
