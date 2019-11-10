@@ -1,0 +1,12 @@
+<nav>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="nav navbar-nav">
+      <li><a [routerLink]="['/welcome']" routerLinkActive="active">Home</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a [routerLink]="['/user/login']" routerLinkActive="active" [routerLinkActiveOptions]="{exact : true}" *ngIf="!this._auth.isAuthenticated">Login</a></li>
+      <li class="navbar-text" *ngIf="this._auth.isAuthenticated">Signed in as {{_auth.currentUser.userName}}</li>
+      <li><a [routerLink]="['/']" routerLinkActive="active" class="navbar-right" *ngIf="this._auth.isAuthenticated" (click)="logout()">Logout</a></li>
+    </ul>
+  </div>
+</nav>
