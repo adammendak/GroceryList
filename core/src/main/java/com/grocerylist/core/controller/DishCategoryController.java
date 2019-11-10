@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/dishCategory")
+@RequestMapping("/api/v1/dishCategory")
 @RequiredArgsConstructor
-public class DishCategoryConroller {
+public class DishCategoryController {
 
     private final DishCategoryService dishCategoryService;
 }
