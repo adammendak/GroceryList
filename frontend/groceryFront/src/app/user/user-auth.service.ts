@@ -21,8 +21,6 @@ export class UserAuthService {
 
     this.isAuthenticated = true;
     this.currentUser = resultUser;
-
     return resultUser;
-
   }
 }
