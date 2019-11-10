@@ -11,6 +11,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { LoginComponent } from "./user/login";
 import { routes } from "./routes";
 import {FormsModule} from "@angular/forms";
+import { MylistComponent } from './mylist/mylist.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {FormsModule} from "@angular/forms";
     NavbarComponent,
     ErrorComponent,
     WelcomeComponent,
-    LoginComponent
+    LoginComponent,
+    MylistComponent
   ],
   imports: [
     BrowserModule,

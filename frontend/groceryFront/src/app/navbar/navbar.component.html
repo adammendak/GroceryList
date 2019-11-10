@@ -1,12 +1,14 @@
 <nav class="w-100">
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <div class="navbar" id="navbarSupportedContent">
+    <span class="navbar-brand">Grocery List</span>
     <ul class="nav navbar-nav">
       <li><a [routerLink]="['/welcome']" routerLinkActive="active">Home</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a [routerLink]="['/user/login']" routerLinkActive="active" [routerLinkActiveOptions]="{exact : true}" *ngIf="!this._auth.isAuthenticated">Login</a></li>
+      <li><a [routerLink]="['/user/login']" class="btn-info" *ngIf="!this._auth.isAuthenticated">Login</a></li>
       <li class="navbar-text" *ngIf="this._auth.isAuthenticated">Signed in as {{_auth.currentUser.userName}}</li>
-      <li><a [routerLink]="['/']" routerLinkActive="active" class="navbar-right" *ngIf="this._auth.isAuthenticated" (click)="logout()">Logout</a></li>
+      <li *ngIf="this._auth.isAuthenticated"><a [routerLink]="['/mylist']" routerLinkActive="active">Moja Lista</a></li>
+      <li><a [routerLink]="['/']" routerLinkActive="active" class="btn-danger" *ngIf="this._auth.isAuthenticated" (click)="logout()">Logout</a></li>
     </ul>
   </div>
 </nav>
