@@ -1,9 +1,15 @@
 package com.grocerylist.model;
 
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
+
+@EqualsAndHashCode(callSuper = true)
+@AllArgsConstructor
+@Getter
+@Setter
+@NoArgsConstructor
 
 @Data
 @Entity
@@ -14,14 +20,14 @@ public class Dish extends AbstractTimestampableEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "DESCRIPTION")
-    private String description;
+    @Column(name = "RECIPE")
+    private String recipe;
 
     @Column(name = "PREPARE_TIME")
     private Integer prepareTime;
 
     @Column(name = "DIFFICULTY_LEVEL")
-    private String difficultyLevel;
+    private Integer difficultyLevel;
 
     @Column(name = "NUMBER_OF_SERVINGS")
     private Integer numberOfServings;
@@ -34,7 +40,7 @@ public class Dish extends AbstractTimestampableEntity {
             joinColumns = @JoinColumn(name = "dish_id"),
             inverseJoinColumns = @JoinColumn(name = "dish_category_id")
     )
-    private List<DishCategory> categories;
+    private List<DishCategory> categoriesList;
 
     @ManyToMany
     @JoinTable(name = "DISH_INGREDIENT",

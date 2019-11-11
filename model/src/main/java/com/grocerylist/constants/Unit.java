@@ -2,9 +2,12 @@ package com.grocerylist.constants;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.Setter;
 
 @AllArgsConstructor
 @Getter
+
+
 public enum Unit {
     BAG("Bag"),
     BAR("Bar"),
@@ -31,6 +34,7 @@ public enum Unit {
     TABLESPOON("Tablespoon"),
     TEASPOON("Teaspoon");
 
-    private String value;
+    public String value;
+
 
 }

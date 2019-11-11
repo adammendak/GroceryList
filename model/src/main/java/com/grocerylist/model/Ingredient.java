@@ -1,10 +1,14 @@
 package com.grocerylist.model;
 
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
-
+@EqualsAndHashCode(callSuper = true)
+@AllArgsConstructor
+@Getter
+@Setter
+@NoArgsConstructor
 @Data
 @Entity
 @Table(name = "INGREDIENT")
