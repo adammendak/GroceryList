@@ -17,27 +17,25 @@ import java.util.Objects;
 @RestController
 @RequestMapping("/api/dish")
 @RequiredArgsConstructor
-@AllArgsConstructor
+
 
 public class DishController {
 
-    //TODO remove constructor, use @AllArgsConstructor from Lombok
     //TODO remove getDishesUseCase , use DishService from core/services
 
     private DishMapper dishMapper;
-//    private ProcessDishUseCase processDishUseCase;
-//    private GetDishesUseCase getDishesUseCase;
+    private DishService dishService;
 
-//    public DishController(DishMapper dishMapper) {
-//        this.dishMapper = dishMapper;
-//        this.processDishUseCase = processDishUseCase;
-//        this.getDishesUseCase = getDishesUseCase;
-//    }
+    public DishController(DishMapper dishMapper, DishService dishService) {
+        this.dishMapper = dishMapper;
+        this.dishService = dishService;
+
+    }
 
     @PostMapping("/add-dish")
     public ResponseEntity<String> addDish(@RequestBody DishDto dishDto) {
         if (dishDto.getIngredients().isEmpty()
-                || dishDto.getCategoriesList().isEmpty()
+                || dishDto.getCategoriesIdList().isEmpty()
                 || Objects.isNull(dishDto.getDifficultyLevel())
                 || Objects.isNull(dishDto.getRecipe())) {
             return new ResponseEntity("Your request body is not correct", HttpStatus.BAD_REQUEST);

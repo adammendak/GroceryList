@@ -4,7 +4,7 @@ import com.grocerylist.model.Ingredient;
 import org.springframework.stereotype.Component;
 
 @Component
-class IngredientMapper {
+public class IngredientMapper {
 
     Ingredient mapToIngredient(IngredientDto ingredientDto) {
         Ingredient ingredient = new Ingredient();

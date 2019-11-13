@@ -10,8 +10,9 @@ import java.util.List;
 @Getter
 public class DishDto {
 
-    @JsonProperty("categoriesList")
-    private List<DishCategory> categoriesList = new ArrayList<>();
+
+    @JsonProperty("categoriesIdList")
+    private List<Integer> categoriesIdList = new ArrayList<>();
     @JsonProperty("difficultyLevel")
     private Integer difficultyLevel;
     @JsonProperty("recipe")

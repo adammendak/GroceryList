@@ -9,6 +9,6 @@ public class ProductDto {
 
     private Long id;
     private String name;
-    private List<UnitDto> unitDtoList;
+    private List<String> unitList;
 }
 

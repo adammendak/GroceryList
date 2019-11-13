@@ -1,5 +1,6 @@
 package com.grocerylist.core.controller;
 
+import com.grocerylist.core.service.ProductService;
 import com.grocerylist.mapper.ProductMapper;
 import com.grocerylist.model.Product;
 import com.grocerylist.dto.ProductDto;
@@ -19,19 +20,19 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 public class ProductController {
 
 
-    //TODO remove constructor, use @AllArgsConstructor from Lombok
+
     //TODO remove getProductsUseCase , use ProductService from core/services
 
     private ProductMapper productMapper;
-//    private ProcessProductUseCase processProductUseCase;
-//    private GetProductsUseCase getProductsUseCase;
+    private ProductService productService;
 
-//    public ProductController(ProductMapper productMapper) {
-//        this.productMapper = productMapper;
-//        this.processProductUseCase = processProductUseCase;
-//        this.getProductsUseCase = getProductsUseCase;
-//
-//    }
+
+    public ProductController(ProductMapper productMapper, ProductService productService) {
+        this.productMapper = productMapper;
+        this.productService = productService;
+
+
+    }
 
     @PostMapping("/add-product")
     public ResponseEntity<String> addProduct(@RequestBody ProductDto productDto) {

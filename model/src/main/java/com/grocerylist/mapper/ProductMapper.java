@@ -13,22 +13,17 @@ import java.util.stream.Collectors;
 @Component
 public class ProductMapper {
 
-    private UnitMapper unitMapper;
-
-    public ProductMapper(UnitMapper unitMapper) {
-        this.unitMapper = unitMapper;
-    }
 
     public Product mapToProduct(ProductDto productDto) {
 
         Product product = new Product();
-//        List<Unit> units = productDto
-//                .getUnitDtoList()
-//                .stream()
-//                .map(unitDto -> unitMapper.mapToUnit(unitDto))
-//                .collect(Collectors.toList());
+        List<Unit> units = productDto
+                .getUnitList()
+                .stream()
+                .map(Unit::valueOf)
+                .collect(Collectors.toList());
 
-//        product.setUnits(units);
+        product.setUnits(units);
         product.setId(productDto.getId());
         product.setName(productDto.getName());
         return product;

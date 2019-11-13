@@ -11,8 +11,6 @@ public class IngredientDto {
     private Long id;
     @JsonProperty ("name")
     private String name;
-//    @JsonProperty ("unit")
-//    private String unit;
     @JsonProperty ("quantity")
     private double quantity;
     @JsonProperty ("product")
