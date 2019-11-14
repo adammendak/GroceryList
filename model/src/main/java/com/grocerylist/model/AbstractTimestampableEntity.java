@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @MappedSuperclass
 @Getter
@@ -13,18 +13,18 @@ public abstract class AbstractTimestampableEntity {
 
     @Column(name = "CREATED_AT")
     //todo dodac converter czasu na java.sql.date z javax pakietu
-    private LocalDate createdAt;
+    private LocalDateTime createdAt;
 
     @Column(name = "UPDATED_AT")
-    private LocalDate updatedAt;
+    private LocalDateTime updatedAt;
 
     @PrePersist
     protected void onCreate() {
-        this.setCreatedAt(LocalDate.now());
+        this.setCreatedAt(LocalDateTime.now());
     }
 
     @PreUpdate
     protected void onUpdate() {
-        this.setUpdatedAt(LocalDate.now());
+        this.setUpdatedAt(LocalDateTime.now());
     }
 }

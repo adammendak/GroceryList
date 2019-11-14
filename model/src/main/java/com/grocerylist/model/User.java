@@ -12,8 +12,8 @@ public abstract class User extends AbstractTimestampableEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "LOGIN", nullable = false)
-    private String login;
+    @Column(name = "USERNAME", nullable = false)
+    private String userName;
 
     @Column(name = "EMAIL", nullable = false)
     private String email;
@@ -21,9 +21,4 @@ public abstract class User extends AbstractTimestampableEntity {
     @Column(name = "PASSWORD_HASH", nullable = false)
     private String passwordHash;
 
-    // TODO: zaimplementować
-
-    public static User tryLogin(String login, String password) {
-        throw new UnsupportedOperationException();
-    }
 }

@@ -4,9 +4,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 @Data
-public class DishCategoryDto {
+public class ProductDto {
 
     @JsonProperty("name")
     private String name;
 
+    @JsonProperty("unit")
+    private String unit;
+
+    @JsonProperty("productCategory")
+    private ProductCategoryDto productCategory;
 }

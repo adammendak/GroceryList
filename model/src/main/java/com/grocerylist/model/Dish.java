@@ -43,5 +43,4 @@ public class Dish extends AbstractTimestampableEntity {
     )
     private List<Ingredient> ingredients;
 
-
 }
