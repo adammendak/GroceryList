@@ -1,13 +1,11 @@
 package com.grocerylist.core.service;
 
-import com.grocerylist.dao.repository.DishRepository;
+import com.grocerylist.dao.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class DishService {
-
-    private final DishRepository dishRepository;
-
+public class ProductService {
+    private final ProductRepository productRepository;
 }
