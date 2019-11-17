@@ -1,7 +1,8 @@
 package com.grocerylist.core.controller;
 
+import com.grocerylist.core.service.DishCategoryService;
 import com.grocerylist.core.service.DishService;
-import com.grocerylist.dto.DishDto;
+import com.grocerylist.dto.DishCategoryDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -9,38 +10,38 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping("/api/dish")
+@RequestMapping("/api/dishCategory")
 @RequiredArgsConstructor
 public class DishController {
 
     private final DishService dishService;
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity getDishCategory(@PathVariable Long id) {
+    public ResponseEntity getDish(@PathVariable Long id) {
         //todo Implement in dish service
         return null;
     }
 
     @GetMapping
-    public ResponseEntity getAllDishCategories() {
+    public ResponseEntity getAllDishes() {
         //todo Implement in dish service
         return null;
     }
 
     @PostMapping
-    public ResponseEntity createDishCategory(@Valid @RequestBody DishDto dishDto) {
+    public ResponseEntity createDish(@Valid @RequestBody DishCategoryDto dishCategoryDto) {
         //todo Implement in dish service
         return null;
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity updateDishCategory(@Valid @RequestBody DishDto dishDto) {
+    public ResponseEntity updateDish(@Valid @RequestBody DishCategoryDto dishCategoryDto) {
         //todo Implement
         return null;
     }
 
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity deleteDishCategory(@PathVariable Long id) {
+    public ResponseEntity deleteDish(@PathVariable Long id) {
         //todo Implement
         return null;
     }
