@@ -36,7 +36,7 @@ public class Dish extends AbstractTimestampableEntity {
     )
     private List<DishCategory> categories;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.REMOVE)
     @JoinTable(name = "DISH_INGREDIENT",
             joinColumns = @JoinColumn(name = "dish_id"),
             inverseJoinColumns = @JoinColumn(name = "ingredient_id")

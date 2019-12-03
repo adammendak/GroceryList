@@ -26,9 +26,8 @@ public class DishService {
 
     private final DishRepository dishRepository;
     private final DishMapper dishMapper;
-    private final ProductCategoryRepository productCategoryRepository;
     private final DishCategoryRepository dishCategoryRepository;
-    private final IngredientMapper ingredientMapper;
+    private final IngredientService ingredientService;
     private final ProductService productService;
 
     public DishDto findById(Long id) throws ResourceNotFoundException {
@@ -68,6 +67,7 @@ public class DishService {
         dish.setPhotoURL(dto.getPhotoURL());
         dish.setPrepareTime(dto.getPrepareTime());
 
+        ingredients.forEach(ingredientService::save);
         Dish saved = dishRepository.save(dish);
         return dishMapper.toDto(saved);
     }
@@ -103,6 +103,7 @@ public class DishService {
         dish.setPhotoURL(dto.getPhotoURL());
         dish.setPrepareTime(dto.getPrepareTime());
 
+        ingredients.forEach(ingredientService::save);
         Dish saved = dishRepository.save(dish);
         return dishMapper.toDto(saved);
     }
