@@ -2,7 +2,6 @@ package com.grocerylist.core.service;
 
 import com.grocerylist.dao.repository.IngredientRepository;
 import com.grocerylist.mapper.IngredientMapper;
-import com.grocerylist.mapper.IngredientMapperImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +10,7 @@ import org.springframework.stereotype.Service;
 public class IngredientService {
 
     private final IngredientRepository ingredientRepository;
-    private final IngredientMapper ingredientMapper = new IngredientMapperImpl();
+    private final IngredientMapper ingredientMapper;
+
 }
 

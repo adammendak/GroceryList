@@ -2,6 +2,7 @@ package com.grocerylist.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.jpa.convert.threeten.Jsr310JpaConverters.LocalDateTimeConverter;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -12,15 +13,17 @@ import java.time.LocalDateTime;
 public abstract class AbstractTimestampableEntity {
 
     @Column(name = "CREATED_AT")
-    //todo dodac converter czasu na java.sql.date z javax pakietu
+    @Convert(converter = LocalDateTimeConverter.class)
     private LocalDateTime createdAt;
 
     @Column(name = "UPDATED_AT")
+    @Convert(converter = LocalDateTimeConverter.class)
     private LocalDateTime updatedAt;
 
     @PrePersist
     protected void onCreate() {
         this.setCreatedAt(LocalDateTime.now());
+        this.setUpdatedAt(LocalDateTime.now());
     }
 
     @PreUpdate

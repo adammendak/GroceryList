@@ -1,6 +1,6 @@
 package com.grocerylist.core.service;
 
-import com.grocerylist.mapper.UserMapperImpl;
+import com.grocerylist.mapper.UserMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -9,6 +9,6 @@ import org.springframework.stereotype.Service;
 public class AuthenticationService {
 
     private final UserService userService;
-    private final UserMapperImpl userMapper = new UserMapperImpl();
+    private final UserMapper userMapper;
 
 }
