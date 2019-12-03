@@ -32,4 +32,8 @@ public class Mappers {
         return new ProductMapperImpl();
     }
 
+    @Bean
+    public ProductCategoryMapper productCategoryMapper() {
+        return new ProductCategoryMapperImpl();
+    }
 }

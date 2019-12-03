@@ -1,18 +1,17 @@
 package com.grocerylist.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Builder;
 import lombok.Data;
 
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Data
-public class IngredientDto {
+@Builder
+public class UnitDto {
 
-    @JsonProperty ("quantity")
+    @JsonProperty("unit_names")
     @NotNull
-    private Double quantity;
-
-    @JsonProperty ("product")
-    @NotNull
-    private ProductDto product;
+    private List<String> unitNames;
 }

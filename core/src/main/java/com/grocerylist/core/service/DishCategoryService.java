@@ -34,8 +34,18 @@ public class DishCategoryService {
     }
 
     public DishCategoryDto save(@Valid DishCategoryDto dishCategoryDto) {
-        DishCategory dishCatSaved = dishCategoryRepository.save(dishCategoryMapper.toEntity(dishCategoryDto));
-        return dishCategoryMapper.toDto(dishCatSaved);
+        dishCategoryRepository.save(dishCategoryMapper.toEntity(dishCategoryDto));
+        return dishCategoryDto;
+    }
+
+    public DishCategory save(@Valid DishCategory dishCategory) {
+        return dishCategoryRepository.save(dishCategory);
+    }
+
+    public void delete(Long id) throws ResourceNotFoundException {
+        DishCategory entity = dishCategoryRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Dish Category Not Found"));
+        dishCategoryRepository.delete(entity);
     }
 
 }

@@ -9,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/dish")
@@ -19,14 +18,14 @@ public class DishCategoryController {
     private final DishCategoryService dishCategoryService;
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<DishCategoryDto> getDishCategory(@PathVariable Long id) throws ResourceNotFoundException {
+    public ResponseEntity getDishCategory(@PathVariable Long id) throws ResourceNotFoundException {
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(dishCategoryService.findById(id));
     }
 
     @GetMapping
-    public ResponseEntity<List<DishCategoryDto>> getAllDishCategories() {
+    public ResponseEntity getAllDishCategories() {
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(dishCategoryService.findAll());
@@ -39,15 +38,11 @@ public class DishCategoryController {
                 .body(dishCategoryService.save(dishDto));
     }
 
-    @PutMapping(value = "/{id}")
-    public ResponseEntity updateDishCategory(@Valid @RequestBody DishCategoryDto dishDto) {
-        //todo Implement
-        return null;
-    }
-
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity deleteDishCategory(@PathVariable Long id) {
-        //todo Implement
-        return null;
+    public ResponseEntity deleteDishCategory(@PathVariable Long id) throws ResourceNotFoundException {
+        dishCategoryService.delete(id);
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body("Dish Category Deleted");
     }
 }

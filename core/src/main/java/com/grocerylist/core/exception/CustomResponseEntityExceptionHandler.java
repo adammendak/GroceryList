@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+import javax.validation.ValidationException;
 import java.time.LocalDateTime;
 
 @Component
@@ -18,11 +19,20 @@ import java.time.LocalDateTime;
 @Slf4j
 public class CustomResponseEntityExceptionHandler extends ResponseEntityExceptionHandler {
 
-    @ExceptionHandler(ResourceNotFoundException.class)
-    public ResponseEntity<Object> handleExceptionResourceNotFoundException(Exception ex, WebRequest request) {
+    @ExceptionHandler(ValidationException.class)
+    public ResponseEntity<Object> handleValidationException(Exception ex, WebRequest request) {
 
         log.info("####Controller Advice");
-        ExceptionResponseDto exceptionResponse = new ExceptionResponseDto(LocalDateTime.now(), "Dish Category not found !");
+        ExceptionResponseDto exceptionResponse = new ExceptionResponseDto(LocalDateTime.now(), ex.getMessage());
+
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exceptionResponse);
+    }
+
+    @ExceptionHandler(ResourceNotFoundException.class)
+    public ResponseEntity<Object> handleResourceNotFoundException(Exception ex, WebRequest request) {
+
+        log.info("####Controller Advice");
+        ExceptionResponseDto exceptionResponse = new ExceptionResponseDto(LocalDateTime.now(), "Resource Not Found !");
 
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exceptionResponse);
     }

@@ -1,8 +1,10 @@
 package com.grocerylist.core.controller;
 
+import com.grocerylist.core.exception.ResourceNotFoundException;
 import com.grocerylist.core.service.ProductService;
 import com.grocerylist.dto.ProductDto;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,32 +18,39 @@ public class ProductController {
     private final ProductService productService;
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity getProduct(@PathVariable Long id) {
-        //todo Implement in dish service
-        return null;
+    public ResponseEntity getProduct(@PathVariable Long id) throws ResourceNotFoundException {
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(productService.findById(id));
     }
 
     @GetMapping
     public ResponseEntity getAllProducts() {
-        //todo Implement in dish service
-        return null;
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(productService.findAll());
     }
 
     @PostMapping
-    public ResponseEntity createProduct(@Valid @RequestBody ProductDto productDto) {
-        //todo Implement in dish service
-        return null;
+    public ResponseEntity createProduct(@Valid @RequestBody ProductDto productDto) throws ResourceNotFoundException {
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .body(productService.save(productDto));
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity updateProduct(@Valid @RequestBody ProductDto productDto) {
-        //todo Implement
-        return null;
+    public ResponseEntity updateProduct(@Valid @RequestBody ProductDto productDto, @PathVariable Long id)
+            throws ResourceNotFoundException {
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(productService.update(productDto, id));
     }
 
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity deleteProduct(@PathVariable Long id) {
-        //todo Implement
-        return null;
+    public ResponseEntity deleteProduct(@PathVariable Long id) throws ResourceNotFoundException {
+        productService.delete(id);
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body("Product Deleted");
     }
 }

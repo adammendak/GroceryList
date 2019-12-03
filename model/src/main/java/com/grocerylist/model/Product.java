@@ -21,7 +21,7 @@ public class Product extends AbstractTimestampableEntity {
     @Enumerated(EnumType.STRING)
     private Unit unit;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "PRODUCT_CATEGORY_ID")
     private ProductCategory productCategory;
 

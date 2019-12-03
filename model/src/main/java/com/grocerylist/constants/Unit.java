@@ -3,6 +3,10 @@ package com.grocerylist.constants;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 @AllArgsConstructor
 @Getter
 public enum Unit {
@@ -32,5 +36,11 @@ public enum Unit {
     TEASPOON("Teaspoon");
 
     private String value;
+
+    public static List<String> getAllUnits() {
+        return Arrays.stream(Unit.values())
+                .map(Unit::getValue)
+                .collect(Collectors.toList());
+    }
 
 }
