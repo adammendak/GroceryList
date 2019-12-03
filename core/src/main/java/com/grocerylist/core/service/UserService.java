@@ -1,7 +1,7 @@
 package com.grocerylist.core.service;
 
-import com.grocerylist.dao.repository.AdminRepository;
-import com.grocerylist.dao.repository.ClientRepository;
+import com.grocerylist.repository.AdminRepository;
+import com.grocerylist.repository.ClientRepository;
 import com.grocerylist.mapper.UserMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

@@ -1,7 +1,7 @@
 package com.grocerylist.core.bootstrap;
 
 import com.grocerylist.core.service.DishCategoryService;
-import com.grocerylist.model.DishCategory;
+import com.grocerylist.dto.DishCategoryDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
@@ -21,11 +21,11 @@ public class DevDataBootstrap implements CommandLineRunner {
         log.info("####Adding base data to dev database");
         log.info("####Adding DishCategory");
 
-        DishCategory dishCatPasta = new DishCategory();
+        DishCategoryDto dishCatPasta = new DishCategoryDto();
         dishCatPasta.setName("Pasta");
         dishCategoryService.save(dishCatPasta);
 
-        DishCategory dishCatVege = new DishCategory();
+        DishCategoryDto dishCatVege = new DishCategoryDto();
         dishCatVege.setName("Wegetarian");
         dishCategoryService.save(dishCatVege);
     }

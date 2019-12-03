@@ -1,4 +1,4 @@
-package com.grocerylist.dao.repository;
+package com.grocerylist.repository;
 
 import com.grocerylist.model.ProductCategory;
 import org.springframework.data.repository.CrudRepository;

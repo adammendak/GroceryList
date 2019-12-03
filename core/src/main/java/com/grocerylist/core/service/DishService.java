@@ -1,6 +1,6 @@
 package com.grocerylist.core.service;
 
-import com.grocerylist.dao.repository.DishRepository;
+import com.grocerylist.repository.DishRepository;
 import com.grocerylist.mapper.DishMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

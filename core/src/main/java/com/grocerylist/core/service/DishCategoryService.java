@@ -1,10 +1,10 @@
 package com.grocerylist.core.service;
 
 import com.grocerylist.core.exception.ResourceNotFoundException;
-import com.grocerylist.dao.repository.DishCategoryRepository;
 import com.grocerylist.dto.DishCategoryDto;
 import com.grocerylist.mapper.DishCategoryMapper;
 import com.grocerylist.model.DishCategory;
+import com.grocerylist.repository.DishCategoryRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -33,8 +33,8 @@ public class DishCategoryService {
                 .collect(Collectors.toList());
     }
 
-    public DishCategoryDto save(@Valid DishCategory dishCategory) {
-        DishCategory dishCatSaved = dishCategoryRepository.save(dishCategory);
+    public DishCategoryDto save(@Valid DishCategoryDto dishCategoryDto) {
+        DishCategory dishCatSaved = dishCategoryRepository.save(dishCategoryMapper.toEntity(dishCategoryDto));
         return dishCategoryMapper.toDto(dishCatSaved);
     }
 

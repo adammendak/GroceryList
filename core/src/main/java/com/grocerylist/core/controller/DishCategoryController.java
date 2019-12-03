@@ -3,7 +3,6 @@ package com.grocerylist.core.controller;
 import com.grocerylist.core.exception.ResourceNotFoundException;
 import com.grocerylist.core.service.DishCategoryService;
 import com.grocerylist.dto.DishCategoryDto;
-import com.grocerylist.dto.DishDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -34,13 +33,14 @@ public class DishCategoryController {
     }
 
     @PostMapping
-    public ResponseEntity createDishCategory(@Valid @RequestBody DishDto dishDto) {
-        //todo Implement in dish service
-        return null;
+    public ResponseEntity createDishCategory(@Valid @RequestBody DishCategoryDto dishDto) {
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .body(dishCategoryService.save(dishDto));
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity updateDishCategory(@Valid @RequestBody DishDto dishDto) {
+    public ResponseEntity updateDishCategory(@Valid @RequestBody DishCategoryDto dishDto) {
         //todo Implement
         return null;
     }
