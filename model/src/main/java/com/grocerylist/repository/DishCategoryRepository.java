@@ -12,4 +12,6 @@ public interface DishCategoryRepository extends JpaRepository<DishCategory, Long
 
     List<DishCategory> findAll();
 
+    Optional<DishCategory> findByName(String name);
+
 }

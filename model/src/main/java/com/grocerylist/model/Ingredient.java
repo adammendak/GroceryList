@@ -17,7 +17,7 @@ public class Ingredient extends AbstractTimestampableEntity {
     @Column(name = "QUANTITY")
     private Double quantity;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "PRODUCT_ID")
     private Product product;
 

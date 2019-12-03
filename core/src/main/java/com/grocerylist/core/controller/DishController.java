@@ -1,9 +1,10 @@
 package com.grocerylist.core.controller;
 
-import com.grocerylist.core.service.DishCategoryService;
+import com.grocerylist.core.exception.ResourceNotFoundException;
 import com.grocerylist.core.service.DishService;
-import com.grocerylist.dto.DishCategoryDto;
+import com.grocerylist.dto.DishDto;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,32 +18,38 @@ public class DishController {
     private final DishService dishService;
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity getDish(@PathVariable Long id) {
-        //todo Implement in dish service
-        return null;
+    public ResponseEntity getDish(@PathVariable Long id) throws ResourceNotFoundException {
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(dishService.findById(id));
     }
 
     @GetMapping
     public ResponseEntity getAllDishes() {
-        //todo Implement in dish service
-        return null;
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(dishService.findAll());
     }
 
     @PostMapping
-    public ResponseEntity createDish(@Valid @RequestBody DishCategoryDto dishCategoryDto) {
-        //todo Implement in dish service
-        return null;
+    public ResponseEntity createDish(@Valid @RequestBody DishDto dishDto) throws ResourceNotFoundException {
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .body(dishService.save(dishDto));
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity updateDish(@Valid @RequestBody DishCategoryDto dishCategoryDto) {
-        //todo Implement
-        return null;
+    public ResponseEntity updateDish(@Valid @RequestBody DishDto dishDto, @PathVariable Long id) throws ResourceNotFoundException {
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(dishService.update(dishDto, id));
     }
 
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity deleteDish(@PathVariable Long id) {
-        //todo Implement
-        return null;
+    public ResponseEntity deleteDish(@PathVariable Long id) throws ResourceNotFoundException {
+        dishService.delete(id);
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body("Product Deleted");
     }
 }

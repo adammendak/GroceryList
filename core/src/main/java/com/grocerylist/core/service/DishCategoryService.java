@@ -38,7 +38,7 @@ public class DishCategoryService {
         return dishCategoryDto;
     }
 
-    public DishCategory save(@Valid DishCategory dishCategory) {
+    public DishCategory save(DishCategory dishCategory) {
         return dishCategoryRepository.save(dishCategory);
     }
 

@@ -32,6 +32,10 @@ public class ProductService {
                 .orElseThrow(() -> new ResourceNotFoundException("Product Not Found"));
     }
 
+    public Product findByName(String name) {
+        return productRepository.findByName(name).orElse(null);
+    }
+
     public List<ProductDto> findAll() {
         return productRepository
                 .findAll()
