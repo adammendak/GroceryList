@@ -1,8 +1,10 @@
 package com.grocerylist.core.controller;
 
+import com.grocerylist.core.exception.UserExistException;
 import com.grocerylist.core.service.UserService;
 import com.grocerylist.dto.UserDto;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,9 +30,11 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity createUser(@Valid @RequestBody UserDto userDto) {
-        //todo Implement in dish service
-        return null;
+    public ResponseEntity createUser(@Valid @RequestBody UserDto userDto) throws UserExistException {
+        userService.createUser(userDto);
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .body("user is added");
     }
 
     @PutMapping(value = "/{id}")
