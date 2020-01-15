@@ -1,5 +1,6 @@
 package com.grocerylist.core.exception;
 
+import com.grocerylist.model.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -32,8 +33,20 @@ public class CustomResponseEntityExceptionHandler extends ResponseEntityExceptio
     public ResponseEntity<Object> handleResourceNotFoundException(Exception ex, WebRequest request) {
 
         log.info("####Controller Advice");
-        ExceptionResponseDto exceptionResponse = new ExceptionResponseDto(LocalDateTime.now(), "Resource Not Found !");
+        ExceptionResponseDto exceptionResponse = new ExceptionResponseDto(LocalDateTime.now(),
+                "Resource Not Found !");
 
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exceptionResponse);
     }
+
+    @ExceptionHandler({UserExistException.class, UserNotExistException.class})
+    public ResponseEntity<Object> handleUserExistOrNotException(Exception ex, WebRequest request) {
+
+        log.info("####Controller Advice");
+        ExceptionResponseDto userExistExceptionResponse = new ExceptionResponseDto(LocalDateTime.now(),
+                "You given wrong data - bad request");
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(userExistExceptionResponse);
+
+    }
+
 }
