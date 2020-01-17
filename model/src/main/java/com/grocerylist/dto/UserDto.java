@@ -9,6 +9,9 @@ import javax.validation.constraints.NotNull;
 @Data
 public class UserDto {
 
+    @JsonProperty("id")
+    private Long id;
+
     @JsonProperty("userName")
     @NotNull
     private String userName;

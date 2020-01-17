@@ -7,7 +7,7 @@ import lombok.Getter;
 @Getter
 public enum UserType {
     ADMIN("admin"),
-    USER("user");
+    CLIENT("client");
 
     private String value;
 }
