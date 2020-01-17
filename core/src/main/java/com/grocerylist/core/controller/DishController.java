@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping("/api/dishCategory")
+@RequestMapping("/api/dish")
 @RequiredArgsConstructor
 public class DishController {
 
