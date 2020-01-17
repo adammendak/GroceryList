@@ -4,12 +4,12 @@ import com.grocerylist.constants.UserType;
 import com.grocerylist.core.exception.UserExistException;
 import com.grocerylist.core.exception.UserNotExistException;
 import com.grocerylist.dto.UserDto;
+import com.grocerylist.mapper.UserMapper;
 import com.grocerylist.model.Admin;
 import com.grocerylist.model.Client;
 import com.grocerylist.model.User;
 import com.grocerylist.repository.AdminRepository;
 import com.grocerylist.repository.ClientRepository;
-import com.grocerylist.mapper.UserMapper;
 import com.grocerylist.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -76,24 +76,34 @@ public class UserService {
         }
     }
 
-    public Optional<UserDto> getUserById(Long id) {
+    public UserDto getUserById(Long id) throws UserNotExistException {
 
         Optional<Client> user = clientRepository.findById(id);
         if (user.isPresent()) {
             UserDto userDto = user.map(userMapper::toDto).get();
             userDto.setUserType(UserType.CLIENT);
-            return Optional.of(userDto);
+            return userDto;
         } else {
-            return Optional.empty();
+            throw new UserNotExistException("User don't exist in Database");
         }
     }
 
     public List<UserDto> findAll() {
-        return userRepository
+        return clientRepository
                 .findAll()
                 .stream()
                 .map(userMapper::toDto)
                 .collect(Collectors.toList());
+    }
 
+    public void deleteUser(Long id) throws UserNotExistException {
+        Optional<Client> user = clientRepository.findById(id);
+        if (user.isPresent()) {
+
+            userRepository.delete(user.get());
+
+        } else {
+            throw new UserNotExistException("User wiht given id doesn't exit");
+        }
     }
 }

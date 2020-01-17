@@ -10,7 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/user")
@@ -20,11 +19,11 @@ public class UserController {
     private final UserService userService;
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity getUser(@PathVariable Long id) {
-        Optional<UserDto> userDto = userService.getUserById(id);
+    public ResponseEntity getUser(@PathVariable Long id) throws UserNotExistException {
+        UserDto userDto = userService.getUserById(id);
         return ResponseEntity
                 .status(HttpStatus.CREATED)
-                .body(userDto.isPresent() ? userDto : "user don't exist in Database");
+                .body(userDto);
 
 
     }
@@ -53,8 +52,10 @@ public class UserController {
     }
 
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity deleteUser(@PathVariable Long id) {
-        //todo Implement
-        return null;
+    public ResponseEntity deleteUser(@PathVariable Long id) throws UserNotExistException {
+        userService.deleteUser(id);
+        return ResponseEntity
+                .status(HttpStatus.ACCEPTED)
+                .body("user was removed");
     }
 }
