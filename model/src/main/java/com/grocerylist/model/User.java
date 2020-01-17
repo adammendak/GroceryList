@@ -22,5 +22,4 @@ public abstract class User extends AbstractTimestampableEntity {
     private String passwordHash;
 
 
-
 }

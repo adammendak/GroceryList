@@ -39,7 +39,7 @@ public class UserService {
             throw new UserExistException("There is already a user with that Name");
         }
         Client client = userMapper.toEntityUser(userDto);
-        client.setPasswordHash("byleco");
+        client.setPasswordHash(userDto.getPassword());
         client = clientRepository.save(client);
 
 
@@ -51,25 +51,25 @@ public class UserService {
 
         if (userDto.getUserType().equals(UserType.CLIENT)) {
             Optional<Client> clientOptional = clientRepository.findById(id);
-            if (clientOptional.isEmpty()) {
+            if (!clientOptional.isPresent()) {
                 throw new UserNotExistException("There isn't any user with given Id");
             }
 
             Client client = clientOptional.get();
             client.setEmail(userDto.getEmail());
-            client.setPasswordHash("byleco");
+            client.setPasswordHash(userDto.getPassword());
             client.setUserName(userDto.getUserName());
             clientRepository.save(client);
             return userMapper.toDto(client);
         } else {
             Optional<Admin> adminOptional = adminRepository.findById(id);
-            if (adminOptional.isEmpty()) {
+            if (!adminOptional.isPresent()) {
                 throw new UserNotExistException("There isn't any user with given Id");
             }
 
             Admin admin = adminOptional.get();
             admin.setEmail(userDto.getEmail());
-            admin.setPasswordHash("byleco");
+            admin.setPasswordHash(userDto.getPassword());
             admin.setUserName(userDto.getUserName());
             adminRepository.save(admin);
             return userMapper.toDto(admin);
