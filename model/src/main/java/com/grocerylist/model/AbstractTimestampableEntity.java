@@ -30,4 +30,6 @@ public abstract class AbstractTimestampableEntity {
     protected void onUpdate() {
         this.setUpdatedAt(LocalDateTime.now());
     }
+
+
 }

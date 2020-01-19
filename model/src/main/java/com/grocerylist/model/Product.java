@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Data
 @Entity
 @Table(name = "PRODUCT")
-public class Product extends AbstractTimestampableEntity {
+public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,5 +24,6 @@ public class Product extends AbstractTimestampableEntity {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "PRODUCT_CATEGORY_ID")
     private ProductCategory productCategory;
+
 
 }

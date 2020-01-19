@@ -9,6 +9,9 @@ import javax.validation.constraints.NotNull;
 @Data
 public class ProductCategoryDto {
 
+    @JsonProperty("id")
+    private Long id;
+
     @JsonProperty("name")
     @NotNull
     @NotEmpty

@@ -86,13 +86,10 @@ public class UserService {
     }
 
     public void deleteUser(Long id) throws UserNotExistException {
-        Optional<Client> user = clientRepository.findById(id);
-        if (user.isPresent()) {
+        User user = userRepository.findById(id)
+                .orElseThrow(() -> new UserNotExistException("User Not Found"));
+        userRepository.delete(user);
 
-            userRepository.delete(user.get());
-
-        } else {
-            throw new UserNotExistException("User wiht given id doesn't exit");
-        }
     }
+
 }

@@ -1,5 +1,6 @@
 package com.grocerylist.repository;
 
+
 import com.grocerylist.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
