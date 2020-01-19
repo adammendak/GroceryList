@@ -15,6 +15,11 @@ import { MylistComponent } from './mylist/mylist.component';
 import { DishComponent } from './dish/dish.component';
 import { DishDetailComponent } from './dish/dish-detail/dish-detail.component';
 
+import { ToastrModule } from 'ngx-toastr';
+import { HttpClientModule } from "@angular/common/http";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { SignInComponent } from './user/sign-in/sign-in.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,13 +29,17 @@ import { DishDetailComponent } from './dish/dish-detail/dish-detail.component';
     LoginComponent,
     MylistComponent,
     DishComponent,
-    DishDetailComponent
+    DishDetailComponent,
+    SignInComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot(routes),
-    FormsModule
+    FormsModule,
+    ToastrModule.forRoot(),
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [UserAuthService],
   bootstrap: [AppComponent]

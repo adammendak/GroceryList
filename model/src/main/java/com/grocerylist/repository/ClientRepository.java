@@ -8,9 +8,14 @@ import java.util.List;
 import java.util.Optional;
 
 public interface ClientRepository extends JpaRepository<Client, Long> {
+
     User findByUserName(String userName);
+
     User findByEmail(String email);
+
     Optional<Client> findById(Long id);
+
+    Optional<Client> findByUserNameAndPassword(String userName, String password);
 
     List<Client> findAll();
 }

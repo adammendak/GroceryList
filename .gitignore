@@ -2,3 +2,7 @@
 .idea/*
 target/*
 /*/target/*
+frontend/groceryFront/node_modules
+frontend/groceryFront/package-lock.json
+frontend/groceryFront/dist/
+

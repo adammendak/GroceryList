@@ -24,8 +24,13 @@ public class UserController {
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body(userDto);
+    }
 
-
+    @PostMapping(value = "/login")
+    public ResponseEntity loginUser(@Valid @RequestBody UserDto userDto) throws UserNotExistException {
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(userService.findUserByUserNameAndPassword(userDto));
     }
 
     @GetMapping
@@ -37,10 +42,10 @@ public class UserController {
 
     @PostMapping
     public ResponseEntity createUser(@Valid @RequestBody UserDto userDto) throws UserExistException {
-        userService.createUser(userDto);
+        UserDto createdUser =userService.createUser(userDto);
         return ResponseEntity
                 .status(HttpStatus.CREATED)
-                .body("user is added");
+                .body(createdUser);
     }
 
     @PutMapping(value = "/{id}")
