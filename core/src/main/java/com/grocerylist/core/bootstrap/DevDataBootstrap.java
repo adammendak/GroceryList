@@ -2,7 +2,9 @@ package com.grocerylist.core.bootstrap;
 
 import com.google.common.collect.Lists;
 import com.grocerylist.constants.Unit;
+import com.grocerylist.core.exception.UserExistException;
 import com.grocerylist.core.service.*;
+import com.grocerylist.dto.UserDto;
 import com.grocerylist.model.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -10,7 +12,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
-@Profile(value = "dev")
+@Profile("dev")
 @Slf4j
 @RequiredArgsConstructor
 @Component
@@ -21,6 +23,7 @@ public class DevDataBootstrap implements CommandLineRunner {
     private final ProductCategoryService productCategoryService;
     private final IngredientService ingredientService;
     private final DishService dishService;
+    private final UserService userService;
 
     @Override
     public void run(String... args) {
@@ -80,5 +83,17 @@ public class DevDataBootstrap implements CommandLineRunner {
         tomatoPasta.setIngredients(Lists.newArrayList(tomatoIngredient));
         tomatoPasta.setCategories(Lists.newArrayList(dishCatPasta));
         dishService.save(tomatoPasta);
+
+        UserDto testClient = new UserDto();
+        testClient.setUserName("test");
+        testClient.setPassword("test");
+        testClient.setEmail("test@test.pl");
+
+        try {
+            userService.createUser(testClient);
+        } catch (UserExistException e) {
+            e.printStackTrace();
+        }
+        log.info("####Adding test users");
     }
 }

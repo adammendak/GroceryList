@@ -23,7 +23,7 @@ export class User implements IUser {
     this.password = password;
   }
 
-  setEmail(enail: string): void {
-    this.email = this.email;
+  setEmail(email: string): void {
+    this.email = email;
   }
 }

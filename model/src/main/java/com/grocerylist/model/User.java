@@ -18,8 +18,7 @@ public abstract class User extends AbstractTimestampableEntity {
     @Column(name = "EMAIL", nullable = false)
     private String email;
 
-    @Column(name = "PASSWORD_HASH", nullable = false)
-    private String passwordHash;
-
+    @Column(name = "PASSWORD", nullable = false)
+    private String password;
 
 }
