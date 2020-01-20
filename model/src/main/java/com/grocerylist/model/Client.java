@@ -10,5 +10,4 @@ import javax.persistence.Table;
 @Table(name = "CLIENT")
 public class Client extends User {
 
-
 }

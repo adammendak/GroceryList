@@ -19,6 +19,9 @@ import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from "@angular/common/http";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { SignInComponent } from './user/sign-in/sign-in.component';
+import { ProductsComponent } from './products/products.component';
+import { AddProductComponent } from './products/add-product/add-product.component';
+import { AddProductCategoryComponent } from './products/add-product-category/add-product-category.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,10 @@ import { SignInComponent } from './user/sign-in/sign-in.component';
     MylistComponent,
     DishComponent,
     DishDetailComponent,
-    SignInComponent
+    SignInComponent,
+    ProductsComponent,
+    AddProductComponent,
+    AddProductCategoryComponent
   ],
   imports: [
     BrowserModule,

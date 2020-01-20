@@ -19,8 +19,6 @@ public class ProductCategoryService {
 
     private final ProductCategoryRepository productCategoryRepository;
     private final ProductCategoryMapper productCategoryMapper;
-//    private final ProductCategory productCategory;
-
 
     public ProductCategoryDto findById(Long id) throws ResourceNotFoundException {
         return productCategoryRepository.findById(id)
@@ -40,8 +38,7 @@ public class ProductCategoryService {
                 .collect(Collectors.toList());
     }
 
-    public ProductCategoryDto save(@Valid ProductCategoryDto productCategoryDto) throws ResourceNotFoundException {
-
+    public ProductCategoryDto save(@Valid ProductCategoryDto productCategoryDto) {
         ProductCategory productCategory = productCategoryMapper.toEntity(productCategoryDto);
         productCategoryRepository.save(productCategory);
         return productCategoryMapper.toDto(productCategory);
@@ -51,7 +48,7 @@ public class ProductCategoryService {
         return productCategoryRepository.save(productCategory);
     }
 
-    public ProductCategory update(@Valid ProductCategoryDto productCategoryDto, Long id) throws ResourceNotFoundException {
+    public ProductCategory update(@Valid ProductCategoryDto productCategoryDto, Long id) {
 
         Optional<ProductCategory> entity = productCategoryRepository.findById(id);
         ProductCategory productCategory = entity.get();

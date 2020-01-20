@@ -24,7 +24,6 @@ public class ProductService {
     private final ProductCategoryRepository productCategoryRepository;
     private final ProductMapper productMapper;
 
-
     public ProductDto findById(Long id) throws ResourceNotFoundException {
         return productRepository.findById(id)
                 .map(productMapper::toDto)

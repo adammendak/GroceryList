@@ -1,5 +1,6 @@
 package com.grocerylist.constants;
 
+import com.grocerylist.dto.UnitDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -37,9 +38,9 @@ public enum Unit {
 
     private String value;
 
-    public static List<String> getAllUnits() {
+    public static List<UnitDto> getAllUnits() {
         return Arrays.stream(Unit.values())
-                .map(Unit::getValue)
+                .map(UnitDto::new)
                 .collect(Collectors.toList());
     }
 

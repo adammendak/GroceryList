@@ -31,5 +31,4 @@ public abstract class AbstractTimestampableEntity {
         this.setUpdatedAt(LocalDateTime.now());
     }
 
-
 }

@@ -5,6 +5,9 @@ import { MylistComponent } from "./mylist/mylist.component";
 import { DishComponent } from "./dish/dish.component";
 import { DishDetailComponent } from "./dish/dish-detail/dish-detail.component";
 import { SignInComponent } from "./user/sign-in/sign-in.component";
+import { ProductsComponent } from "./products/products.component";
+import { AddProductComponent } from "./products/add-product/add-product.component";
+import {AddProductCategoryComponent} from "./products/add-product-category/add-product-category.component";
 
 export const routes = [
   {path: 'welcome', component: WelcomeComponent},
@@ -12,6 +15,9 @@ export const routes = [
   {path: 'user/login', component: LoginComponent},
   {path: 'user/signUp', component: SignInComponent},
   {path: 'mylist', component: MylistComponent},
+  {path: 'product', component: ProductsComponent},
+  {path: 'addProduct', component: AddProductComponent},
+  {path: 'addProductCategory', component: AddProductCategoryComponent},
   {path: 'dish', component: DishComponent},
   {path: 'dish/:id', component: DishDetailComponent},
   {path: '', redirectTo: 'welcome', pathMatch: 'full'},

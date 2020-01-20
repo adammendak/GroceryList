@@ -1,7 +1,6 @@
 package com.grocerylist.core.controller;
 
 import com.grocerylist.constants.Unit;
-import com.grocerylist.dto.UnitDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,11 +15,8 @@ public class UnitController {
 
     @GetMapping()
     public ResponseEntity getAllUnits() {
-        UnitDto dto = UnitDto.builder()
-                .unitNames(Unit.getAllUnits())
-                .build();
         return ResponseEntity
                 .status(HttpStatus.OK)
-                .body(dto);
+                .body(Unit.getAllUnits());
     }
 }

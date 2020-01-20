@@ -1,17 +1,24 @@
 package com.grocerylist.dto;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.grocerylist.constants.Unit;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotNull;
-import java.util.List;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 @Builder
 public class UnitDto {
 
-    @JsonProperty("unit_names")
+    @JsonProperty("unitName")
     @NotNull
-    private List<String> unitNames;
+    private Unit unitName;
+
 }

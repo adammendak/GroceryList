@@ -15,4 +15,5 @@ public class DishCategory extends AbstractTimestampableEntity {
 
     @Column(name = "NAME", nullable = false)
     private String name;
+
 }

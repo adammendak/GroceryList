@@ -17,14 +17,12 @@ public class ProductCategoryController {
 
     private final ProductCategoryService productCategoryService;
 
-
     @GetMapping(value = "/{id}")
     public ResponseEntity getProductCategory(@PathVariable Long id) throws ResourceNotFoundException {
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(productCategoryService.findById(id));
     }
-
 
     @GetMapping
     public ResponseEntity getAllProductCategories() {
@@ -34,15 +32,14 @@ public class ProductCategoryController {
     }
 
     @PostMapping
-    public ResponseEntity createProductCategory(@Valid @RequestBody ProductCategoryDto productCategoryDto) throws ResourceNotFoundException {
+    public ResponseEntity createProductCategory(@Valid @RequestBody ProductCategoryDto productCategoryDto) {
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body(productCategoryService.save(productCategoryDto));
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity updateProductCategory(@Valid @RequestBody ProductCategoryDto productCategoryDto, @PathVariable Long id)
-            throws ResourceNotFoundException {
+    public ResponseEntity updateProductCategory(@Valid @RequestBody ProductCategoryDto productCategoryDto, @PathVariable Long id) {
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(productCategoryService.update(productCategoryDto, id));

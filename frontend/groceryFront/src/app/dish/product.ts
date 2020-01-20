@@ -11,7 +11,6 @@ export class Product implements  IProduct {
   private _quantity: number;
   private _unit: string;
 
-
   get name(): string {
     return this._name;
   }

@@ -19,5 +19,4 @@ public class IngredientDto {
     @NotNull
     private ProductDto product;
 
-
 }
