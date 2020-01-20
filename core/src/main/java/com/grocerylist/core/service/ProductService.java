@@ -3,12 +3,11 @@ package com.grocerylist.core.service;
 import com.grocerylist.constants.Unit;
 import com.grocerylist.core.exception.ResourceNotFoundException;
 import com.grocerylist.dto.ProductDto;
-import com.grocerylist.mapper.ProductCategoryMapper;
+import com.grocerylist.mapper.ProductMapper;
 import com.grocerylist.model.Product;
 import com.grocerylist.model.ProductCategory;
 import com.grocerylist.repository.ProductCategoryRepository;
 import com.grocerylist.repository.ProductRepository;
-import com.grocerylist.mapper.ProductMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -24,7 +23,7 @@ public class ProductService {
     private final ProductRepository productRepository;
     private final ProductCategoryRepository productCategoryRepository;
     private final ProductMapper productMapper;
-    private final ProductCategoryMapper productCategoryMapper;
+
 
     public ProductDto findById(Long id) throws ResourceNotFoundException {
         return productRepository.findById(id)

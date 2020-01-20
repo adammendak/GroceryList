@@ -8,6 +8,9 @@ import javax.validation.constraints.NotNull;
 @Data
 public class IngredientDto {
 
+    @JsonProperty("id")
+    private Long id;
+
     @JsonProperty ("quantity")
     @NotNull
     private Double quantity;
@@ -15,4 +18,6 @@ public class IngredientDto {
     @JsonProperty ("product")
     @NotNull
     private ProductDto product;
+
+
 }

@@ -15,4 +15,6 @@ public class ProductCategory extends AbstractTimestampableEntity {
 
     @Column(name = "NAME", nullable = false)
     private String name;
+
 }
+

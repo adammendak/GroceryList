@@ -10,6 +10,9 @@ import java.util.List;
 @Data
 public class DishDto {
 
+    @JsonProperty("id")
+    private Long id;
+
     @JsonProperty("description")
     @NotNull
     @NotEmpty
