@@ -1,0 +1,14 @@
+<div class="jumbotron">
+  <h1 class="text-center">Add Product Category Form</h1>
+  <hr>
+  <div class="mol-md-4">
+    <form #AddProductCategory="ngForm" autocomplete="off" (ngSubmit)="addProductCategory(AddProductCategory.value)">
+      <div class="form-group" [class.has-error]="AddProductCategory.controls.userName.invalid && AddProductCategory.controls.userName.touched">
+        <i class="fas fa-user"></i><label for="userName"> Product Category Name: </label>
+        <input id="userName" type="text" class="form-control" required placeholder="Product Category ..." name="productCategory" [(ngModel)]="productCategory.name">
+      </div>
+      <button type="submit" class="btn btn-success" [disabled]="AddProductCategory.invalid">SignUp</button>
+      <button type="button" class="btn btn-info" (click)="cancel()">Cancel</button>
+    </form>
+  </div>
+</div>
