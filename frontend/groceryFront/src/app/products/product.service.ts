@@ -4,7 +4,8 @@ import { Router } from "@angular/router";
 import { ToastrService } from "ngx-toastr";
 import { ProductCategory } from "./productCategory";
 import { applicationProperties } from "../properties";
-import {Observable} from "rxjs";
+import { Observable } from "rxjs";
+import { Product } from "../dish/product";
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,8 @@ import {Observable} from "rxjs";
 export class ProductService {
 
   urlCategories = applicationProperties.productCategoryApi;
+
+  urlProducts = applicationProperties.productApi;
 
   productCategories: ProductCategory[];
 
@@ -57,7 +60,6 @@ export class ProductService {
     this.http.get<ProductCategory[]>(this.urlCategories).subscribe(
       (data) => {
         this.productCategories = data;
-        console.log(this.productCategories)
       },
       (error) => {
         this.showError('ERROR GETTING PRODUCT CATEGORIES');
@@ -77,6 +79,10 @@ export class ProductService {
 
   getProductObservables(): Observable<ProductCategory[]> {
     return this.http.get<ProductCategory[]>(this.urlCategories);
+  }
+
+  getProductsForCategory(name: string): Observable<Product[]> {
+    return this.http.get<Product[]>(this.urlProducts + '/getByName/' + name);
   }
 
   showCreated(text: string) {

@@ -30,6 +30,13 @@ public class ProductService {
                 .orElseThrow(() -> new ResourceNotFoundException("Product Not Found"));
     }
 
+    public List<ProductDto> findByProductCategory(String name) {
+        return productRepository.findByProductCategory_Name(name)
+                .stream()
+                .map(productMapper::toDto)
+                .collect(Collectors.toList());
+    }
+
     public Product findByName(String name) {
         return productRepository.findByName(name).orElse(null);
     }

@@ -28,14 +28,22 @@
 
 <div class="panel panel-primary">
   <div class="panel-heading">
-    Products
+    Products of category
+    <select class="form-control" id="operator-groups" (change)="getProductsForCategoryEvent($event)">
+      <option *ngFor="let productCategory of productCategories; let i = index;" [ngValue]="productCategory.id">{{productCategory.name}}</option>
+    </select>
   </div>
   <div class="panel-body">
     <div class="table-responsive">
       <table class="table">
         <thead>
         <tr>
-          dupa
+          <th>Name</th>
+          <th>Unit</th>
+        </tr>
+        <tr *ngFor="let product of products">
+          <td> {{product.name}}</td>
+          <td> {{product.unit}}</td>
         </tr>
         </thead>
         <tbody>
