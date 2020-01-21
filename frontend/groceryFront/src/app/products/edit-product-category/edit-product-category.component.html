@@ -1,0 +1,14 @@
+<div class="jumbotron">
+  <h1 class="text-center">Edit Product Category Form</h1>
+  <hr>
+  <div class="mol-md-4">
+    <form #EditProductCategory="ngForm" autocomplete="off" (ngSubmit)="editProductCategory(EditProductCategory.value)">
+      <div class="form-group" [class.has-error]="EditProductCategory.controls.userName.invalid && EditProductCategory.controls.userName.touched">
+        <i class="fas fa-user"></i><label for="editProductCategory"> Product Category Name: </label>
+        <input id="editProductCategory" type="text" class="form-control" required placeholder="{{productCategory.name}}" name="productCategory" [(ngModel)]="productCategory.name">
+      </div>
+      <button type="submit" class="btn btn-success" [disabled]="EditProductCategory.invalid">Edit</button>
+      <button type="button" class="btn btn-info" (click)="cancel()">Cancel</button>
+    </form>
+  </div>
+</div>
