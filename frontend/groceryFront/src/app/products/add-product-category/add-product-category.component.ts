@@ -5,8 +5,7 @@ import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-add-product-category',
-  templateUrl: './add-product-category.component.html',
-  styleUrls: ['./add-product-category.component.css']
+  templateUrl: './add-product-category.component.html'
 })
 export class AddProductCategoryComponent {
 

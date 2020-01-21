@@ -8,6 +8,7 @@ import { SignInComponent } from "./user/sign-in/sign-in.component";
 import { ProductsComponent } from "./products/products.component";
 import { AddProductComponent } from "./products/add-product/add-product.component";
 import {AddProductCategoryComponent} from "./products/add-product-category/add-product-category.component";
+import {EditProductCategoryComponent} from "./products/edit-product-category/edit-product-category.component";
 
 export const routes = [
   {path: 'welcome', component: WelcomeComponent},
@@ -18,6 +19,7 @@ export const routes = [
   {path: 'product', component: ProductsComponent},
   {path: 'addProduct', component: AddProductComponent},
   {path: 'addProductCategory', component: AddProductCategoryComponent},
+  {path: 'editProductCategory/:id', component: EditProductCategoryComponent},
   {path: 'dish', component: DishComponent},
   {path: 'dish/:id', component: DishDetailComponent},
   {path: '', redirectTo: 'welcome', pathMatch: 'full'},
