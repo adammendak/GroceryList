@@ -15,8 +15,8 @@
         </tr>
         <tr *ngFor="let productCategory of productCategories">
           <td> {{productCategory.name}}</td>
-          <td><button class="btn btn-info" (click)="edit(productCategory.id)">Edit</button></td>
-          <td><button class="btn btn-danger" (click)="delete(productCategory.id)">Delete</button></td>
+          <td><button *ngIf="this._auth.isAuthenticated" class="btn btn-info" (click)="edit(productCategory.id)">Edit</button></td>
+          <td><button *ngIf="this._auth.isAuthenticated" class="btn btn-danger" (click)="delete(productCategory.id)">Delete</button></td>
         </tr>
         </thead>
         <tbody>
