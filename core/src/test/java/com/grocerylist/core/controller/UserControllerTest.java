@@ -56,7 +56,7 @@ public class UserControllerTest {
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(userDtoJson))
                 .andExpect(status()
-                        .is4xxClientError());
+                        .isBadRequest());
     }
 
     @Test
