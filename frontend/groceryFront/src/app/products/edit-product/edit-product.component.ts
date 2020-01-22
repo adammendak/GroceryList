@@ -15,9 +15,9 @@ export class EditProductComponent {
   product: Product;
   id: number;
   units: Unit[];
-  unitSelected: Unit;
+  unitSelected: string;
   categories: ProductCategory[];
-  categorySelected: string;
+  categorySelected: ProductCategory;
 
   constructor(private _route: ActivatedRoute,
               private _productService: ProductService,
@@ -27,7 +27,7 @@ export class EditProductComponent {
     this._productService.getProduct(this._route.snapshot.params['id'])
       .subscribe( (data) => {
         this.product = data;
-        this.unitSelected = new Unit(this.product.unit);
+        this.unitSelected = this.product.unit;
       });
     this._unitsService.getUnitObservables()
       .subscribe( (data) => {
@@ -49,16 +49,15 @@ export class EditProductComponent {
     resultProduct.setId(this.id);
     resultProduct.setName(productForm.product);
     resultProduct.setProductCategory(this.categorySelected);
-    resultProduct.setUnit(this.unitSelected.unitName);
+    resultProduct.setUnit(this.unitSelected);
     this._productService.editProduct(resultProduct);
   }
 
   setUnitSelected(name) {
-    this.unitSelected.setName(name.target.value);
+    this.unitSelected = name.target.value;
   }
 
   setProductCategory(category) {
     this.categorySelected = category.target.value;
   }
-
 }
