@@ -60,29 +60,29 @@ public class DevDataBootstrap implements CommandLineRunner {
         salami.setUnit(Unit.SLICE);
         productService.save(salami);
 
-        log.info("####Adding Ingredients to database");
-        Ingredient salamiIngredient = new Ingredient();
-        salamiIngredient.setProduct(salami);
-        salamiIngredient.setQuantity(10.0);
-        ingredientService.save(salamiIngredient);
-
-        Ingredient tomatoIngredient = new Ingredient();
-        tomatoIngredient.setProduct(tomato);
-        tomatoIngredient.setQuantity(20.0);
-        ingredientService.save(tomatoIngredient);
-
-        log.info("####Adding Dishes to database");
-        Dish diavola = new Dish();
-        diavola.setDescription("Pizza Diavola");
-        diavola.setIngredients(Lists.newArrayList(salamiIngredient));
-        diavola.setCategories(Lists.newArrayList(dishCatPizza));
-        dishService.save(diavola);
-
-        Dish tomatoPasta = new Dish();
-        tomatoPasta.setDescription("Tomato Pasta");
-        tomatoPasta.setIngredients(Lists.newArrayList(tomatoIngredient));
-        tomatoPasta.setCategories(Lists.newArrayList(dishCatPasta));
-        dishService.save(tomatoPasta);
+//        log.info("####Adding Ingredients to database");
+//        Ingredient salamiIngredient = new Ingredient();
+//        salamiIngredient.setProduct(salami);
+//        salamiIngredient.setQuantity(10.0);
+//        ingredientService.save(salamiIngredient);
+//
+//        Ingredient tomatoIngredient = new Ingredient();
+//        tomatoIngredient.setProduct(tomato);
+//        tomatoIngredient.setQuantity(20.0);
+//        ingredientService.save(tomatoIngredient);
+//
+//        log.info("####Adding Dishes to database");
+//        Dish diavola = new Dish();
+//        diavola.setDescription("Pizza Diavola");
+//        diavola.setIngredients(Lists.newArrayList(salamiIngredient));
+//        diavola.setCategories(Lists.newArrayList(dishCatPizza));
+//        dishService.save(diavola);
+//
+//        Dish tomatoPasta = new Dish();
+//        tomatoPasta.setDescription("Tomato Pasta");
+//        tomatoPasta.setIngredients(Lists.newArrayList(tomatoIngredient));
+//        tomatoPasta.setCategories(Lists.newArrayList(dishCatPasta));
+//        dishService.save(tomatoPasta);
 
         UserDto testClient = new UserDto();
         testClient.setUserName("test");

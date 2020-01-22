@@ -30,14 +30,23 @@ export class ProductsComponent {
     this._router.navigate(['/addProductCategory']).catch();
   }
 
-  delete(id: number) {
+  deleteCategory(id: number) {
     this._product.deleteProductCategory(id);
     this.getLocalProductCategories();
     this._router.navigate(['/welcome']).catch();
     this.toastr.error('PRODUCT CATEGORY DELETED');
   }
 
-  edit(id: number) {
+  deleteProduct(id: number) {
+    this._product.deleteProduct(id);
+    this._router.navigate(['/welcome']).catch();
+  }
+
+  editProduct(id: number) {
+    this._router.navigate(['/editProduct/' + id]).catch();
+  }
+
+  editCategory(id: number) {
     this._router.navigate(['/editProductCategory/' + id]).catch();
   }
 

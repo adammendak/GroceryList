@@ -44,7 +44,10 @@ export class ProductService {
   }
 
   editCategoryForm(name: string, id: number) {
-    this.http.put(this.urlCategories + '/' + id, new ProductCategory(name, id)).subscribe(
+    let result = new ProductCategory();
+    result.setName(name);
+    result.setId(id);
+    this.http.put(this.urlCategories + '/' + id, result).subscribe(
       (data) => {
         this._router.navigate(['/product']).catch();
         this.showCreated('PRODUCT CATEGORY UPDATED!')
@@ -52,8 +55,17 @@ export class ProductService {
     );
   }
 
+  editProduct(product: Product) {
+    console.log(product);
+    console.log("INSIDE SERVICE");
+  }
+
   getProductCategory(id: number): Observable<ProductCategory>{
     return this.http.get<ProductCategory>(this.urlCategories+ '/' + id);
+  }
+
+  getProduct(id: number): Observable<Product>{
+    return this.http.get<Product>(this.urlProducts+ '/' + id);
   }
 
   getAllProductCategories() {
@@ -73,6 +85,15 @@ export class ProductService {
       (data) => {
         this._router.navigate(['/product']).catch();
         this.showError('PRODUCT CATEGORY DELETED')
+      },
+    );
+  }
+
+  deleteProduct(id: number) {
+    this.http.delete(this.urlProducts + '/' + id).subscribe(
+      (data) => {
+        this._router.navigate(['/product']).catch();
+        this.showError('PRODUCT DELETED')
       },
     );
   }
