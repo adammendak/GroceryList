@@ -4,13 +4,13 @@ export interface IProduct {
   id: number;
   name: string;
   unit: string;
-  productCategory: ProductCategory;
+  productCategory: string;
 }
 
 export class Product implements  IProduct {
   id: number;
   name: string;
-  productCategory: ProductCategory;
+  productCategory: string;
   unit: string;
 
   setId(value: number) {
@@ -21,7 +21,7 @@ export class Product implements  IProduct {
     this.name = value;
   }
 
-  setProductCategory(value: ProductCategory) {
+  setProductCategory(value: string) {
     this.productCategory = value;
   }
 

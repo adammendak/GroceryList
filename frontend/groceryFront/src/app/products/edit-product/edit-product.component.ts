@@ -17,7 +17,7 @@ export class EditProductComponent {
   units: Unit[];
   unitSelected: string;
   categories: ProductCategory[];
-  categorySelected: ProductCategory;
+  categorySelected: string;
 
   constructor(private _route: ActivatedRoute,
               private _productService: ProductService,
@@ -29,6 +29,7 @@ export class EditProductComponent {
         this.product = data;
         this.unitSelected = this.product.unit;
         this.categorySelected = this.product.productCategory.name;
+        console.log(this.categorySelected);
       });
     this._unitsService.getUnitObservables()
       .subscribe( (data) => {
@@ -60,5 +61,9 @@ export class EditProductComponent {
 
   setProductCategory(category) {
     this.categorySelected = category.target.value;
+  }
+
+  isSelected(name:string) {
+    return name === this.categorySelected;
   }
 }

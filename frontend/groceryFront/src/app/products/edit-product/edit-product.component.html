@@ -16,7 +16,7 @@
       <div class="form-group">
         <i class="fas fa-user"></i><label>Product Category: </label>
         <select class="form-control" (change)="setProductCategory($event)">
-          <option *ngFor="let category of categories; let i = index;" [ngValue]="category">{{category.name}}</option>
+          <option *ngFor="let category of categories; let i = index;" [ngValue]="category" [selected]="isSelected(category.name)">{{category.name}}</option>
         </select>
       </div>
       <button type="submit" class="btn btn-success" [disabled]="EditProduct.invalid">Edit</button>
