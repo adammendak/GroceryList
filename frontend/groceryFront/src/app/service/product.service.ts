@@ -58,6 +58,14 @@ export class ProductService {
   editProduct(product: Product) {
     console.log(product);
     console.log("INSIDE SERVICE");
+    this.http.put(this.urlProducts + '/' + product.id, product).subscribe(
+      (data) => {
+        this._router.navigate(['/product']).catch();
+        this.showCreated('PRODUCT UPDATED!');
+      }, error => {
+        this.showError('ERROR UPDATING PRODUCT');
+      }
+    );
   }
 
   getProductCategory(id: number): Observable<ProductCategory>{

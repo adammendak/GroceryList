@@ -2,6 +2,7 @@ package com.grocerylist.core.service;
 
 import com.grocerylist.constants.Unit;
 import com.grocerylist.core.exception.ResourceNotFoundException;
+import com.grocerylist.dto.ProductDenormalizedDto;
 import com.grocerylist.dto.ProductDto;
 import com.grocerylist.mapper.ProductMapper;
 import com.grocerylist.model.Product;
@@ -65,13 +66,13 @@ public class ProductService {
         return productRepository.save(product);
     }
 
-    public Product update(@Valid ProductDto productDto, Long id) throws ResourceNotFoundException {
+    public Product update(@Valid ProductDenormalizedDto productDto, Long id) throws ResourceNotFoundException {
         Optional<Product> entity = productRepository.findById(id);
         if(!entity.isPresent()) {
             throw new ResourceNotFoundException("Product Not Found");
         }
         Optional<ProductCategory> productCategory =
-                productCategoryRepository.findByName(productDto.getProductCategory().getName());
+                productCategoryRepository.findByName(productDto.getProductCategory());
 
         Product product = entity.get();
         product.setName(productDto.getName());

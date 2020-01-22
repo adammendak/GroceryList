@@ -1,5 +1,4 @@
 import {ProductCategory} from "./productCategory";
-import {Unit} from "./unit";
 
 export interface IProduct {
   id: number;

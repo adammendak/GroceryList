@@ -28,6 +28,7 @@ export class EditProductComponent {
       .subscribe( (data) => {
         this.product = data;
         this.unitSelected = this.product.unit;
+        this.categorySelected = this.product.productCategory.name;
       });
     this._unitsService.getUnitObservables()
       .subscribe( (data) => {

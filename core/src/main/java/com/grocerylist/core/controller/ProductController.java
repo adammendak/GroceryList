@@ -2,6 +2,7 @@ package com.grocerylist.core.controller;
 
 import com.grocerylist.core.exception.ResourceNotFoundException;
 import com.grocerylist.core.service.ProductService;
+import com.grocerylist.dto.ProductDenormalizedDto;
 import com.grocerylist.dto.ProductDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -46,7 +47,7 @@ public class ProductController {
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity updateProduct(@Valid @RequestBody ProductDto productDto, @PathVariable Long id)
+    public ResponseEntity updateProduct(@Valid @RequestBody ProductDenormalizedDto productDto, @PathVariable Long id)
             throws ResourceNotFoundException {
         return ResponseEntity
                 .status(HttpStatus.OK)
