@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Router } from "@angular/router";
 import { ToastrService } from "ngx-toastr";
-import { ProductCategory } from "./productCategory";
+import { ProductCategory } from "../model/productCategory";
 import { applicationProperties } from "../properties";
 import { Observable } from "rxjs";
-import { Product } from "../dish/product";
+import { Product } from "../model/product";
 
 @Injectable({
   providedIn: 'root'

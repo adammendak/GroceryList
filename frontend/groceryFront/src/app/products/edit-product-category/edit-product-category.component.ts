@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ProductService } from "../product.service";
 import { ActivatedRoute, Router } from "@angular/router";
-import {ProductCategory} from "../productCategory";
+import {ProductCategory} from "../../model/productCategory";
 
 @Component({
   selector: 'app-edit-product-category',

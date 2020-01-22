@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { UserAuthService } from "../user/user-auth.service";
 import { Router } from "@angular/router";
 import { ProductService } from "./product.service";
-import { ProductCategory } from "./productCategory";
+import { ProductCategory } from "../model/productCategory";
 import { ToastrService } from "ngx-toastr";
-import {Product} from "../dish/product";
+import {Product} from "../model/product";
 
 @Component({
   selector: 'app-products',

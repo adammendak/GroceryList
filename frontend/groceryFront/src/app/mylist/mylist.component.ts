@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {IDish} from "../dish/dish";
-import {IProduct} from "../dish/product";
+import {IDish} from "../model/dish";
+import {IProduct} from "../model/product";
 
 @Component({
   selector: 'app-mylist',
