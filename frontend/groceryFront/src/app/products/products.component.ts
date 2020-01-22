@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { UserAuthService } from "../user/user-auth.service";
+import { UserAuthService } from "../service/user-auth.service";
 import { Router } from "@angular/router";
-import { ProductService } from "./product.service";
+import { ProductService } from "../service/product.service";
 import { ProductCategory } from "../model/productCategory";
 import { ToastrService } from "ngx-toastr";
 import {Product} from "../model/product";

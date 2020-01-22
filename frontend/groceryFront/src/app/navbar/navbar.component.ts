@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import {UserAuthService} from "../user/user-auth.service";
+import {UserAuthService} from "../service/user-auth.service";
 
 @Component({
   selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  templateUrl: './navbar.component.html'
 })
 export class NavbarComponent {
 

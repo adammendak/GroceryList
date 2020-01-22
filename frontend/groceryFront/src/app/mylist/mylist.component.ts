@@ -1,13 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import {IDish} from "../model/dish";
-import {IProduct} from "../model/product";
+import { Component } from '@angular/core';
+import { IDish } from "../model/dish";
+import { IProduct } from "../model/product";
 
 @Component({
   selector: 'app-mylist',
-  templateUrl: './mylist.component.html',
-  styleUrls: ['./mylist.component.css']
+  templateUrl: './mylist.component.html'
 })
-export class MylistComponent implements OnInit {
+export class MylistComponent {
 
   pageTitle: string = "My Grocery List";
   _listFilter: string;
@@ -22,9 +21,6 @@ export class MylistComponent implements OnInit {
   imageMargin: number = 2;
 
   constructor() { }
-
-  ngOnInit() {
-  }
 
   toggleImg(): void {
     this.showImage = !this.showImage;

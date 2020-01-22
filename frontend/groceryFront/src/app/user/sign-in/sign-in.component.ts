@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
-import {UserAuthService} from "../user-auth.service";
+import {UserAuthService} from "../../service/user-auth.service";
 import {Router} from "@angular/router";
-import {IUser, User} from "../user";
+import {IUser, User} from "../../model/user";
 
 @Component({
   selector: 'app-sign-in',
-  templateUrl: './sign-in.component.html',
-  styleUrls: ['./sign-in.component.css']
+  templateUrl: './sign-in.component.html'
 })
 export class SignInComponent {
 
