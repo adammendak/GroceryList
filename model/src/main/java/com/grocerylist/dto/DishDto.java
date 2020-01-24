@@ -27,9 +27,6 @@ public class DishDto {
     @JsonProperty("numberOfServings")
     private Integer numberOfServings;
 
-    @JsonProperty("photoURL")
-    private String photoURL;
-
     @JsonProperty("categories")
     private List<DishCategoryDto> categories;
 

@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { IDish } from "../model/dish";
-import { IProduct } from "../model/product";
+import { Component } from '@angular/core';
+import { Dish } from "../model/dish";
+import { DishService } from "../service/dish.service";
+import {Router} from "@angular/router";
+import {UserAuthService} from "../service/user-auth.service";
 
 @Component({
   selector: 'app-dish',
@@ -9,20 +11,29 @@ import { IProduct } from "../model/product";
 export class DishComponent {
 
   _listFilter: string;
-  showImage: boolean = false;
 
-  filteredDishes: IDish[];
-  dishes: IDish[] = [];
+  filteredDishes: Dish[];
+  dishes: Dish[] = [];
 
-  products: IProduct[] = [];
+  constructor(public _auth: UserAuthService,
+              public _dish: DishService,
+              private _router: Router,) {
+    this._dish.getDishes().subscribe(
+      (data) => {
+        this.dishes = data;
+        this.filteredDishes = data;
+        console.log(this.dishes);
+      })
+  }
 
-  imageWidth: number = 500;
-  imageMargin: number = 2;
+  adjustFilter(filter: string) {
+     this.filteredDishes = this.dishes.filter(name =>
+       name.description.toLocaleLowerCase()
+         .startsWith(filter.toLocaleLowerCase()))
+  }
 
-  constructor() { }
-
-  toggleImg(): void {
-    this.showImage = !this.showImage;
+  goToAddDish() {
+    this._router.navigate(['/addDish']).catch();
   }
 
 }

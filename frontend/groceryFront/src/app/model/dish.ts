@@ -1,69 +1,44 @@
+import { DishCategory } from "./dishCategory";
+
 export interface IDish {
   id: number;
   description: string;
   prepareTime: number;
   difficultyLevel: string;
   numberOfServings: number;
-  photoURL: string;
+  categories: DishCategory;
 }
 
 export class Dish implements IDish {
-  private _id: number;
-  private _description: string;
-  private _prepareTime: number;
-  private _difficultyLevel: string;
-  private _numberOfServings: number;
-  private _photoURL: string;
+  id: number;
+  description: string;
+  prepareTime: number;
+  difficultyLevel: string;
+  numberOfServings: number;
+  categories: DishCategory[];
 
   setId(id: number): void {
-    this._id = id;
+    this.id = id;
   }
 
-  get id(): number {
-    return this._id;
+
+  setDescription(value: string) {
+    this.description = value;
   }
 
-  set id(value: number) {
-    this._id = value;
+  setPrepareTime(value: number) {
+    this.prepareTime = value;
   }
 
-  get description(): string {
-    return this._description;
+  setDifficultyLevel(value: string) {
+    this.difficultyLevel = value;
   }
 
-  set description(value: string) {
-    this._description = value;
+  setNumberOfServings(value: number) {
+    this.numberOfServings = value;
   }
 
-  get prepareTime(): number {
-    return this._prepareTime;
-  }
-
-  set prepareTime(value: number) {
-    this._prepareTime = value;
-  }
-
-  get difficultyLevel(): string {
-    return this._difficultyLevel;
-  }
-
-  set difficultyLevel(value: string) {
-    this._difficultyLevel = value;
-  }
-
-  get numberOfServings(): number {
-    return this._numberOfServings;
-  }
-
-  set numberOfServings(value: number) {
-    this._numberOfServings = value;
-  }
-
-  get photoURL(): string {
-    return this._photoURL;
-  }
-
-  set photoURL(value: string) {
-    this._photoURL = value;
+  setCategory(value: DishCategory[]) {
+    this.categories = value;
   }
 }

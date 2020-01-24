@@ -7,9 +7,11 @@ import { DishDetailComponent } from "./dish/dish-detail/dish-detail.component";
 import { SignInComponent } from "./user/sign-in/sign-in.component";
 import { ProductsComponent } from "./products/products.component";
 import { AddProductComponent } from "./products/add-product/add-product.component";
-import {AddProductCategoryComponent} from "./products/add-product-category/add-product-category.component";
-import {EditProductCategoryComponent} from "./products/edit-product-category/edit-product-category.component";
-import {EditProductComponent} from "./products/edit-product/edit-product.component";
+import { AddProductCategoryComponent } from "./products/add-product-category/add-product-category.component";
+import { EditProductCategoryComponent } from "./products/edit-product-category/edit-product-category.component";
+import { EditProductComponent } from "./products/edit-product/edit-product.component";
+import { AddDishComponent } from "./dish/add-dish/add-dish.component";
+import { EditDishComponent } from "./dish/edit-dish/edit-dish.component";
 
 export const routes = [
   {path: 'welcome', component: WelcomeComponent},
@@ -23,6 +25,8 @@ export const routes = [
   {path: 'addProductCategory', component: AddProductCategoryComponent},
   {path: 'editProductCategory/:id', component: EditProductCategoryComponent},
   {path: 'dish', component: DishComponent},
+  {path: 'addDish', component: AddDishComponent},
+  {path: 'editDish/:id', component: EditDishComponent},
   {path: 'dish/:id', component: DishDetailComponent},
   {path: '', redirectTo: 'welcome', pathMatch: 'full'},
   {path: '**', redirectTo: 'error'}

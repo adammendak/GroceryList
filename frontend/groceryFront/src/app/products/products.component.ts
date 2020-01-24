@@ -4,7 +4,7 @@ import { Router } from "@angular/router";
 import { ProductService } from "../service/product.service";
 import { ProductCategory } from "../model/productCategory";
 import { ToastrService } from "ngx-toastr";
-import {Product} from "../model/product";
+import { Product } from "../model/product";
 
 @Component({
   selector: 'app-products',

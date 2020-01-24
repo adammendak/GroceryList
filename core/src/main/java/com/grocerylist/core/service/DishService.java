@@ -87,7 +87,6 @@ public class DishService {
         dish.setDescription(dto.getDescription());
         dish.setDifficultyLevel(dto.getDifficultyLevel());
         dish.setNumberOfServings(dto.getNumberOfServings());
-        dish.setPhotoURL(dto.getPhotoURL());
         dish.setPrepareTime(dto.getPrepareTime());
 
         ingredients.forEach(ingredientService::save);

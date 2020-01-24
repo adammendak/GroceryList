@@ -26,9 +26,6 @@ public class Dish extends AbstractTimestampableEntity {
     @Column(name = "NUMBER_OF_SERVINGS")
     private Integer numberOfServings;
 
-    @Column(name = "PHOTO_URL")
-    private String photoURL;
-
     @ManyToMany
     @JoinTable(name = "DISH_DISH_CATEGORY",
             joinColumns = @JoinColumn(name = "dish_id"),

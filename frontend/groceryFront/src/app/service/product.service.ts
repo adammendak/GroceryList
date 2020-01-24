@@ -102,7 +102,7 @@ export class ProductService {
       (data) => {
         this._router.navigate(['/product']).catch();
         this.showError('PRODUCT CATEGORY DELETED')
-      },
+      }
     );
   }
 
