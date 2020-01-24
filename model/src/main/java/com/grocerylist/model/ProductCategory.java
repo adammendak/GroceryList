@@ -3,6 +3,7 @@ package com.grocerylist.model;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @Entity
@@ -15,6 +16,11 @@ public class ProductCategory extends AbstractTimestampableEntity {
 
     @Column(name = "NAME", nullable = false)
     private String name;
+
+    @OneToMany(cascade = CascadeType.ALL,
+            orphanRemoval = true,
+            mappedBy = "productCategory")
+    private List<Product> products;
 
 }
 

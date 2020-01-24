@@ -5,6 +5,7 @@ import com.grocerylist.dto.ProductCategoryDto;
 import com.grocerylist.mapper.ProductCategoryMapper;
 import com.grocerylist.model.ProductCategory;
 import com.grocerylist.repository.ProductCategoryRepository;
+import com.grocerylist.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +20,7 @@ public class ProductCategoryService {
 
     private final ProductCategoryRepository productCategoryRepository;
     private final ProductCategoryMapper productCategoryMapper;
+    private final ProductRepository productRepository;
 
     public ProductCategoryDto findById(Long id) throws ResourceNotFoundException {
         return productCategoryRepository.findById(id)
@@ -61,6 +63,7 @@ public class ProductCategoryService {
     public void delete(Long id) throws ResourceNotFoundException {
         ProductCategory entity = productCategoryRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("ProductCategory Not Found"));
+        entity.getProducts().forEach(productRepository::delete);
         productCategoryRepository.delete(entity);
     }
 }
