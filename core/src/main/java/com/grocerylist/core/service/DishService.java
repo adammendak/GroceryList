@@ -10,6 +10,7 @@ import com.grocerylist.repository.DishRepository;
 import com.grocerylist.mapper.DishMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -73,23 +74,25 @@ public class DishService {
                 .filter(Objects::nonNull)
                 .collect(Collectors.toList());
 
-        List<Ingredient> ingredients = dto.getIngredients().stream()
-                .map(x -> {
-                    Ingredient ingredient = new Ingredient();
-                    ingredient.setQuantity(x.getQuantity());
-                    ingredient.setProduct(productService.findByName(x.getProduct().getName()));
-                    return ingredient;
-                })
-                .collect(Collectors.toList());
+        if(!CollectionUtils.isEmpty(dto.getIngredients())) {
+            List<Ingredient> ingredients = dto.getIngredients().stream()
+                    .map(x -> {
+                        Ingredient ingredient = new Ingredient();
+                        ingredient.setQuantity(x.getQuantity());
+                        ingredient.setProduct(productService.findByName(x.getProduct().getName()));
+                        return ingredient;
+                    })
+                    .collect(Collectors.toList());
+            dish.setIngredients(ingredients);
+            ingredients.forEach(ingredientService::save);
+        }
 
         dish.setCategories(dishCategories);
-        dish.setIngredients(ingredients);
         dish.setDescription(dto.getDescription());
         dish.setDifficultyLevel(dto.getDifficultyLevel());
         dish.setNumberOfServings(dto.getNumberOfServings());
         dish.setPrepareTime(dto.getPrepareTime());
 
-        ingredients.forEach(ingredientService::save);
         return dishRepository.save(dish);
     }
     

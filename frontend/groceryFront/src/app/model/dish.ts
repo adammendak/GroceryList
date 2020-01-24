@@ -6,7 +6,7 @@ export interface IDish {
   prepareTime: number;
   difficultyLevel: string;
   numberOfServings: number;
-  categories: DishCategory;
+  categories: DishCategory[];
 }
 
 export class Dish implements IDish {
@@ -38,7 +38,7 @@ export class Dish implements IDish {
     this.numberOfServings = value;
   }
 
-  setCategory(value: DishCategory[]) {
+  setCategories(value: DishCategory[]) {
     this.categories = value;
   }
 }

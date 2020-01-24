@@ -1,7 +1,10 @@
+const rootUrl = 'http://localhost:8080';
+
 export const applicationProperties = {
-  userApi: 'http://localhost:8080/api/user',
-  productApi: 'http://localhost:8080/api/product',
-  productCategoryApi: 'http://localhost:8080/api/productCategory',
-  unitApi: 'http://localhost:8080/api/unit',
-  dishApi: 'http://localhost:8080/api/dish'
+  userApi: rootUrl + '/api/user',
+  productApi: rootUrl + '/api/product',
+  productCategoryApi: rootUrl + '/api/productCategory',
+  unitApi: rootUrl + '/api/unit',
+  dishApi: rootUrl + '/api/dish',
+  dishCategoryApi: rootUrl + '/api/dishCategory'
 };

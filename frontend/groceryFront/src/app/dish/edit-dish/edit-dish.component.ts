@@ -1,15 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-edit-dish',
-  templateUrl: './edit-dish.component.html',
-  styleUrls: ['./edit-dish.component.css']
+  templateUrl: './edit-dish.component.html'
 })
-export class EditDishComponent implements OnInit {
+export class EditDishComponent {
 
   constructor() { }
-
-  ngOnInit() {
-  }
 
 }

@@ -1,4 +1,5 @@
-<button *ngIf="this._auth.isAuthenticated" class="btn btn-info" style="margin-bottom: 10px" (click)="goToAddDish()"> Add dish</button>
+<button *ngIf="this._auth.isAuthenticated" class="btn btn-info" style="margin-right: 10px; margin-bottom: 10px" (click)="goToAddDish()"> Add dish</button>
+<button *ngIf="this._auth.isAuthenticated" class="btn btn-success" style="margin-bottom: 10px" (click)="goToAddDishCategory()"> Add dish category</button>
 <div class="panel panel-primary">
   <div class="panel-heading">
     Dish List
@@ -23,9 +24,10 @@
           <th>Difficulty Level</th>
           <th>Number Of Servings</th>
           <th>Dish Category</th>
+          <th *ngIf="this._auth.isAuthenticated">DELETE</th>
         </tr>
         <tr *ngFor="let dish of filteredDishes">
-          <td *ngIf="this._auth.isAuthenticated"><button class="btn btn-success"> Add</button></td>
+          <td *ngIf="this._auth.isAuthenticated"><button class="btn btn-success">Add</button></td>
           <td *ngIf="this._auth.isAuthenticated; else notAuthored"><a [routerLink]="['/editDish', dish.id]">{{dish.description}}</a></td>
           <ng-template #notAuthored>
             <td>{{dish.description}}</td>
@@ -34,6 +36,7 @@
           <td>{{dish.difficultyLevel}}</td>
           <td>{{dish.numberOfServings}}</td>
           <td>{{dish.categories[0].name}}</td>
+          <td *ngIf="this._auth.isAuthenticated" class="center-block"><button class="btn btn-danger" (click)="deleteDish(dish.id)">X</button></td>
         </tr>
         </thead>
         <tbody>

@@ -17,7 +17,7 @@ export class DishComponent {
 
   constructor(public _auth: UserAuthService,
               public _dish: DishService,
-              private _router: Router,) {
+              private _router: Router) {
     this._dish.getDishes().subscribe(
       (data) => {
         this.dishes = data;
@@ -34,6 +34,15 @@ export class DishComponent {
 
   goToAddDish() {
     this._router.navigate(['/addDish']).catch();
+  }
+
+  goToAddDishCategory() {
+    this._router.navigate(['/addDishCategory']).catch();
+  }
+
+  deleteDish(id: number) {
+    console.log(id);
+    this._dish.deleteDish(id);
   }
 
 }
