@@ -56,14 +56,23 @@ export class ProductService {
   }
 
   editProduct(product: Product) {
-    console.log(product);
-    console.log("INSIDE SERVICE");
     this.http.put(this.urlProducts + '/' + product.id, product).subscribe(
       (data) => {
         this._router.navigate(['/product']).catch();
         this.showCreated('PRODUCT UPDATED!');
       }, error => {
         this.showError('ERROR UPDATING PRODUCT');
+      }
+    );
+  }
+
+  addProduct(product: Product) {
+    this.http.post(this.urlProducts, product).subscribe(
+      (data) => {
+        this._router.navigate(['/product']).catch();
+        this.showCreated('PRODUCT ADDED!');
+      }, error => {
+        this.showError('ERROR ADDING PRODUCT');
       }
     );
   }

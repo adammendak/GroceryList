@@ -1,21 +1,25 @@
 <div class="jumbotron">
-  <h1 class="text-center">Sign Up Form</h1>
+  <h1 class="text-center">Add Product Form</h1>
   <hr>
   <div class="mol-md-4">
-    <form #signUpForm="ngForm" autocomplete="off" (ngSubmit)="signUp(signUpForm.value)">
-      <div class="form-group" [class.has-error]="signUpForm.controls.userName.invalid && signUpForm.controls.userName.touched">
-        <i class="fas fa-user"></i><label for="userName"> UserName: </label>
-        <input id="userName" type="text" class="form-control" required placeholder="UserName ..." name="userName" [(ngModel)]="user.userName">
+    <form #AddProduct="ngForm" autocomplete="off" (ngSubmit)="addProduct(AddProduct)">
+      <div class="form-group" [class.has-error]="AddProduct.controls.userName.invalid && AddProduct.controls.userName.touched">
+        <i class="fas fa-user"></i><label for="addProductName"> Product Category Name: </label>
+        <input id="addProductName" type="text" class="form-control" required placeholder="Type Product name..." name="productName" ngModel>
       </div>
-      <div class="form-group" [class.has-error]="signUpForm.controls.password.invalid && signUpForm.controls.password.touched">
-        <i class="fas fa-key"></i><label for="password"> Password: </label>
-        <input id="password" type="password" class="form-control" required placeholder="Password ..." name="password" [(ngModel)]="user.password">
+      <div class="form-group">
+        <i class="fas fa-user"></i><label>Product Unit: </label>
+        <select class="form-control" (change)="setUnitSelected($event)">
+          <option *ngFor="let unit of units; let i = index;" [ngValue]="unit.unitName" [selected]="isSelectedUnit(unit.unitName)">{{unit.unitName}}</option>
+        </select>
       </div>
-      <div class="form-group" [class.has-error]="signUpForm.controls.email.invalid && signUpForm.controls.email.touched">
-        <i class="fas fa-key"></i><label for="password"> Password: </label>
-        <input id="email" type="email" class="form-control" required placeholder="E-mail ..." name="email" [(ngModel)]="user.email">
+      <div class="form-group">
+        <i class="fas fa-user"></i><label>Product Category: </label>
+        <select class="form-control" (change)="setProductCategory($event)">
+          <option *ngFor="let category of categories; let i = index;" [ngValue]="category" [selected]="isSelected(category.name)">{{category.name}}</option>
+        </select>
       </div>
-      <button type="submit" class="btn btn-success" [disabled]="signUpForm.invalid">SignUp</button>
+      <button type="submit" class="btn btn-success" [disabled]="AddProduct.invalid">Add</button>
       <button type="button" class="btn btn-info" (click)="cancel()">Cancel</button>
     </form>
   </div>

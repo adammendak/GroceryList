@@ -40,7 +40,7 @@ public class ProductController {
     }
 
     @PostMapping
-    public ResponseEntity createProduct(@Valid @RequestBody ProductDto productDto) throws ResourceNotFoundException {
+    public ResponseEntity createProduct(@Valid @RequestBody ProductDenormalizedDto productDto) throws ResourceNotFoundException {
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body(productService.save(productDto));

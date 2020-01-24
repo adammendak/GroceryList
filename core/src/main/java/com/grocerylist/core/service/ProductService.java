@@ -50,14 +50,17 @@ public class ProductService {
                 .collect(Collectors.toList());
     }
 
-    public ProductDto save(@Valid ProductDto productDto) throws ResourceNotFoundException {
+    public ProductDto save(@Valid ProductDenormalizedDto productDto) throws ResourceNotFoundException {
 
-        Product product = productMapper.toEntity(productDto);
+        Product product = new Product();
+        product.setName(productDto.getName());
         Optional<ProductCategory> productCategory =
-                productCategoryRepository.findByName(productDto.getProductCategory().getName());
+                productCategoryRepository.findByName(productDto.getProductCategory());
 
         product.setProductCategory(productCategory
                 .orElseThrow(()->new ResourceNotFoundException("Product Category not found!")));
+
+        product.setUnit(Unit.valueOf(productDto.getUnit()));
         productRepository.save(product);
         return productMapper.toDto(product);
     }

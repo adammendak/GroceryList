@@ -66,4 +66,8 @@ export class EditProductComponent {
   isSelected(name:string) {
     return name === this.categorySelected;
   }
+
+  isSelectedUnit(name:string) {
+    return name === this.unitSelected;
+  }
 }
