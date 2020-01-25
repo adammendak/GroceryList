@@ -117,21 +117,51 @@ public class UserServiceTest {
 
     }
 
-    //TODO: to implements
+
     @Test
     public void getUserById() throws UserNotExistException {
+//        given
+        Long id = 1L;
+        String userName = "testName";
+        String password = "testPassword";
+        String email = "test@gmail.com";
 
+        Client client = new Client();
+        client.setId(id);
+        client.setUserName(userName);
+        client.setEmail(email);
+        client.setPassword(password);
+
+        UserDto expected = new UserDto(id, "test2Name", email, password);
+
+        given(clientRepository
+                .findById(id))
+                .willReturn(Optional.of(client));
+
+        given(clientRepository.save(any(Client.class)))
+                .willReturn(client);
+
+        given(userMapper.toDto(any(Client.class)))
+                .willReturn(new UserDto(id, "test2Name", email, password));
+//        when
+        UserDto userDto = userService.getUserById(1L);
+
+//        then
+        assertThat(userDto, is(equalTo(expected)));
 
     }
+
 
     //TODO: to implements
     @Test
     public void findAll() throws UserNotExistException {
+//       given
 
+//       then
 
+//       when
     }
 
-    //
     @Test
     public void deleteUser() throws UserNotExistException {
 
@@ -185,7 +215,7 @@ public class UserServiceTest {
         given(userMapper.toDto(any(Client.class)))
                 .willReturn(new UserDto(id, "test2Name", email, password));
 //        when
-        UserDto userDto = userService.updateUser(expected, id);
+        UserDto userDto = userService.getUserById(1L);
 
 //        then
         assertThat(userDto, is(equalTo(expected)));
