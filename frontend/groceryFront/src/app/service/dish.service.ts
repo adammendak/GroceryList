@@ -6,8 +6,6 @@ import { Dish } from "../model/dish";
 import { Observable } from "rxjs";
 import { applicationProperties } from "../properties";
 import { DishCategory } from "../model/dishCategory";
-import {ProductCategory} from "../model/productCategory";
-import {Product} from "../model/product";
 
 @Injectable({
   providedIn: 'root'
@@ -33,6 +31,19 @@ export class DishService {
 
   addDish(dish: Dish) {
     this.http.post(this.urlDish, dish).subscribe(
+      (data) => {
+        this._router.navigate(['/dish']).catch();
+        this.showCreated('DISH ADDED!');
+      }, error => {
+        this.showError('ERROR ADDING DISH');
+        this._router.navigate(['/dish']).catch();
+      }
+    );
+  }
+
+  editDish(dish: Dish) {
+    console.log(dish);
+    this.http.put(this.urlDish + "/" + dish.id, dish).subscribe(
       (data) => {
         this._router.navigate(['/dish']).catch();
         this.showCreated('DISH ADDED!');
@@ -105,6 +116,10 @@ export class DishService {
         this._router.navigate(['/dish']).catch();
       }
     );
+  }
+
+  getDish(id: number): Observable<Dish>{
+    return this.http.get<Dish>(this.urlDish+ '/' + id);
   }
 
   showCreated(text: string) {

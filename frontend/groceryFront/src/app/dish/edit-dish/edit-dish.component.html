@@ -1,1 +1,32 @@
-<p>edit-dish works!</p>
+<div class="jumbotron">
+  <h1 class="text-center">Edit Dish Form</h1>
+  <hr>
+  <div class="mol-md-4">
+    <form #EditDish="ngForm" autocomplete="off" (ngSubmit)="editDish(EditDish)">
+      <div class="form-group" [class.has-error]="EditDish.controls.userName.invalid && EditDish.controls.userName.touched">
+        <i class="fas fa-user"></i><label for="addDescription">Description: </label>
+        <input id="addDescription" type="text" class="form-control" required placeholder="{{dish.description}}" name="description" [(ngModel)]="dish.description">
+      </div>
+      <div class="form-group" [class.has-error]="EditDish.controls.userName.invalid && EditDish.controls.userName.touched">
+        <i class="fas fa-user"></i><label for="addPrepareTime">Prepare Time in minutes: </label>
+        <input id="addPrepareTime" type="number" class="form-control" required placeholder="{{dish.prepareTime}}" name="prepareTime" [(ngModel)]="dish.prepareTime">
+      </div>
+      <div class="form-group" [class.has-error]="EditDish.controls.userName.invalid && EditDish.controls.userName.touched">
+        <i class="fas fa-user"></i><label for="addDifficultyLevel">Difficulty Level: </label>
+        <input id="addDifficultyLevel" type="text" class="form-control" required placeholder="{{dish.difficultyLevel}}" name="difficultyLevel" [(ngModel)]="dish.difficultyLevel">
+      </div>
+      <div class="form-group" [class.has-error]="EditDish.controls.userName.invalid && EditDish.controls.userName.touched">
+        <i class="fas fa-user"></i><label for="addNumberOfServings">Number of Servings: </label>
+        <input id="addNumberOfServings" type="number" class="form-control" required placeholder="{{dish.numberOfServings}}" name="numberOfServings" [(ngModel)]="dish.numberOfServings">
+      </div>
+      <div class="form-group">
+        <i class="fas fa-user"></i><label>Dish Category: </label>
+        <select class="form-control" (change)="setDishCategory($event)">
+          <option *ngFor="let category of categories; let i = index;" [ngValue]="category" [selected]="isSelectedCategory(category.name)">{{category.name}}</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-success" [disabled]="EditDish.invalid">Edit</button>
+      <button type="button" class="btn btn-info" (click)="cancel()">Cancel</button>
+    </form>
+  </div>
+</div>

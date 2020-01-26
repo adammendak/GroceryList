@@ -23,16 +23,16 @@ export class AddDishComponent {
       })
   }
 
-  addDish(dishform) {
+  addDish(dishForm) {
     let resultDish = new Dish();
     let dishCategory = new DishCategory();
     dishCategory.setName(this.categorySelected);
     let dishCategories: DishCategory[] = [dishCategory];
 
-    resultDish.setDescription(dishform.value.description);
-    resultDish.setPrepareTime(dishform.value.prepareTime);
-    resultDish.setDifficultyLevel(dishform.value.difficultyLevel);
-    resultDish.setNumberOfServings(dishform.value.numberOfServings);
+    resultDish.setDescription(dishForm.value.description);
+    resultDish.setPrepareTime(dishForm.value.prepareTime);
+    resultDish.setDifficultyLevel(dishForm.value.difficultyLevel);
+    resultDish.setNumberOfServings(dishForm.value.numberOfServings);
     resultDish.setCategories(dishCategories);
     console.log(resultDish);
     this._dish.addDish(resultDish);
