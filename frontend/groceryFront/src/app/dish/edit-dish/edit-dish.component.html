@@ -34,7 +34,7 @@
               <table class="table">
                 <thead>
                 <tr>
-                  <button style="margin-bottom: 10px;" class="btn btn-success" (click)="openModal(mymodal)">Add Ingredient</button>
+                  <button type="button" style="margin-bottom: 10px;" class="btn btn-success" (click)="openDialog()">Add Ingredient</button>
                 </tr>
                 <tr>
                   <th>Quantity</th>
@@ -58,7 +58,3 @@
     </form>
   </div>
 </div>
-
-<ng-template #mymodal let-c="close" let-d="dismiss">
-  content in here
-</ng-template>

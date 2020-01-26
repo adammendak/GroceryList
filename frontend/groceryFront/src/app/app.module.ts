@@ -28,7 +28,8 @@ import { AddDishComponent } from './dish/add-dish/add-dish.component';
 import { EditDishComponent } from './dish/edit-dish/edit-dish.component';
 import { AddDishCategoryComponent } from './dish/add-dish-category/add-dish-category.component';
 import { EditDishCategoryComponent } from './dish/edit-dish-category/edit-dish-category.component';
-import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { IngredientModalComponent } from './dish/edit-dish/ingredient-modal/ingredient-modal.component';
+import { MaterialModule } from "./material.module";
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
     AddDishComponent,
     EditDishComponent,
     AddDishCategoryComponent,
-    EditDishCategoryComponent
+    EditDishCategoryComponent,
+    IngredientModalComponent
   ],
   imports: [
     BrowserModule,
@@ -59,9 +61,10 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
     ToastrModule.forRoot(),
     HttpClientModule,
     BrowserAnimationsModule,
-    NgbModule
+    MaterialModule
   ],
   providers: [UserAuthService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [IngredientModalComponent]
 })
 export class AppModule { }

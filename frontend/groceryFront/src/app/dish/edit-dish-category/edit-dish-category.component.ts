@@ -27,7 +27,7 @@ export class EditDishCategoryComponent {
     this._router.navigate(['/dish']).catch();
   }
 
-  editDishCatgory(dishCategoryForm) {
+  editDishCategory(dishCategoryForm) {
     this._dishService.editDishCategory(dishCategoryForm.dishCategory, this.id);
   }
 

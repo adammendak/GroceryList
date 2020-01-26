@@ -1,16 +1,17 @@
-import { Component, ViewChild } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { ActivatedRoute, Router } from "@angular/router";
 import { DishService } from "../../service/dish.service";
 import { Dish } from "../../model/dish";
 import { DishCategory } from "../../model/dishCategory";
 import { Ingredient } from "../../model/ingredient";
-import { ModalDismissReasons, NgbModal, NgbModalOptions } from "@ng-bootstrap/ng-bootstrap";
+import { MatDialog } from "@angular/material/dialog";
+import { IngredientModalComponent } from "./ingredient-modal/ingredient-modal.component";
 
 @Component({
   selector: 'app-edit-dish',
   templateUrl: './edit-dish.component.html'
 })
-export class EditDishComponent {
+export class EditDishComponent implements OnInit {
 
   dish: Dish;
   categories: DishCategory[];
@@ -18,12 +19,15 @@ export class EditDishComponent {
   id: number;
   ingredients: Ingredient[];
 
-  closeResult: string;
+  message: string;
 
   constructor(private _route: ActivatedRoute,
               private _dishService: DishService,
               private _router: Router,
-              private modalService: NgbModal) {
+              private dialog: MatDialog) {
+  }
+
+  ngOnInit(): void {
     this.getDishCategories();
     this.getDish();
   }
@@ -74,22 +78,35 @@ export class EditDishComponent {
     this._router.navigate(['/dish']).catch();
   }
 
-  openModal(content) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
-    }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+  openDialog() {
+    const dialogRef = this.dialog.open(IngredientModalComponent, {
+      width: '250px',
+      data: {message: 'HelloWorld'}
     });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.message = result;
+    });
+
+    // const dialogConfig = new MatDialogConfig();
+    //
+    // dialogConfig.disableClose = true;
+    // dialogConfig.autoFocus = true;
+    //
+    // this.dialog.open(IngredientModalComponent, dialogConfig);
+    // this.ingredientModalRef = this.dialog.open(IngredientModalComponent);
   }
 
-  private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
-    } else {
-      return  `with: ${reason}`;
-    }
-  }
+  // openDialog() {
+  //   const dialogRef = this.dialog.open(IngredientModalComponent,{
+  //     data:{
+  //       message: 'HelloWorld',
+  //       buttonText: {
+  //         cancel: 'Done'
+  //       }
+  //     },
+  //   });
+  // }
+
 
 }
