@@ -38,6 +38,13 @@ public class DishCategoryController {
                 .body(dishCategoryService.save(dishDto));
     }
 
+    @PutMapping
+    public ResponseEntity updateDishCategory(@Valid @RequestBody DishCategoryDto dishDto) {
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .body(dishCategoryService.save(dishDto));
+    }
+
     @DeleteMapping(value = "/{id}")
     public ResponseEntity deleteDishCategory(@PathVariable Long id) throws ResourceNotFoundException {
         dishCategoryService.delete(id);

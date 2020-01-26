@@ -27,6 +27,7 @@ import { EditProductComponent } from './products/edit-product/edit-product.compo
 import { AddDishComponent } from './dish/add-dish/add-dish.component';
 import { EditDishComponent } from './dish/edit-dish/edit-dish.component';
 import { AddDishCategoryComponent } from './dish/add-dish-category/add-dish-category.component';
+import { EditDishCategoryComponent } from './dish/edit-dish-category/edit-dish-category.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { AddDishCategoryComponent } from './dish/add-dish-category/add-dish-cate
     EditProductComponent,
     AddDishComponent,
     EditDishComponent,
-    AddDishCategoryComponent
+    AddDishCategoryComponent,
+    EditDishCategoryComponent
   ],
   imports: [
     BrowserModule,

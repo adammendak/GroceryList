@@ -1,0 +1,14 @@
+<div class="jumbotron">
+  <h1 class="text-center">Edit Dish Category Form</h1>
+  <hr>
+  <div class="mol-md-4">
+    <form #EditDishCategory="ngForm" autocomplete="off" (ngSubmit)="editDishCatgory(EditDishCategory.value)">
+      <div class="form-group" [class.has-error]="EditDishCategory.controls.userName.invalid && EditDishCategory.controls.userName.touched">
+        <i class="fas fa-user"></i><label for="editProductCategory"> Dish Category Name: </label>
+        <input id="editProductCategory" type="text" class="form-control" required placeholder="{{dishCategory.name}}" name="dishCategory" [(ngModel)]="dishCategory.name">
+      </div>
+      <button type="submit" class="btn btn-success" [disabled]="EditDishCategory.invalid">Edit</button>
+      <button type="button" class="btn btn-info" (click)="cancel()">Cancel</button>
+    </form>
+  </div>
+</div>

@@ -13,6 +13,7 @@ import { EditProductComponent } from "./products/edit-product/edit-product.compo
 import { AddDishComponent } from "./dish/add-dish/add-dish.component";
 import { EditDishComponent } from "./dish/edit-dish/edit-dish.component";
 import {AddDishCategoryComponent} from "./dish/add-dish-category/add-dish-category.component";
+import {EditDishCategoryComponent} from "./dish/edit-dish-category/edit-dish-category.component";
 
 export const routes = [
   {path: 'welcome', component: WelcomeComponent},
@@ -28,6 +29,7 @@ export const routes = [
   {path: 'dish', component: DishComponent},
   {path: 'addDish', component: AddDishComponent},
   {path: 'addDishCategory', component: AddDishCategoryComponent},
+  {path: 'editDishCategory/:id', component: EditDishCategoryComponent},
   {path: 'editDish/:id', component: EditDishComponent},
   {path: 'dish/:id', component: DishDetailComponent},
   {path: '', redirectTo: 'welcome', pathMatch: 'full'},

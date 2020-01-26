@@ -51,7 +51,9 @@ export class ProductService {
       (data) => {
         this._router.navigate(['/product']).catch();
         this.showCreated('PRODUCT CATEGORY UPDATED!')
-      },
+      },error => {
+        this._router.navigate(['/product']).catch();
+      }
     );
   }
 
@@ -61,7 +63,7 @@ export class ProductService {
         this._router.navigate(['/product']).catch();
         this.showCreated('PRODUCT UPDATED!');
       }, error => {
-        this.showError('ERROR UPDATING PRODUCT');
+        this._router.navigate(['/product']).catch();
       }
     );
   }
@@ -102,6 +104,10 @@ export class ProductService {
       (data) => {
         this._router.navigate(['/product']).catch();
         this.showError('PRODUCT CATEGORY DELETED')
+      },
+      (error) => {
+        this.showError('PRODUCT CATEGORY DELETED');
+        this._router.navigate(['/product']).catch();
       }
     );
   }
@@ -112,6 +118,10 @@ export class ProductService {
         this._router.navigate(['/product']).catch();
         this.showError('PRODUCT DELETED')
       },
+      (error) => {
+        this.showError('PRODUCT DELETED');
+        this._router.navigate(['/product']).catch();
+      }
     );
   }
 

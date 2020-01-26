@@ -3,10 +3,10 @@ import { HttpClient } from "@angular/common/http";
 import { Router } from "@angular/router";
 import { ToastrService } from "ngx-toastr";
 import { Dish } from "../model/dish";
-import {Observable} from "rxjs";
-import {applicationProperties} from "../properties";
-import {DishCategory} from "../model/dishCategory";
-import {Product} from "../model/product";
+import { Observable } from "rxjs";
+import { applicationProperties } from "../properties";
+import { DishCategory } from "../model/dishCategory";
+import {ProductCategory} from "../model/productCategory";
 
 @Injectable({
   providedIn: 'root'
@@ -37,8 +37,13 @@ export class DishService {
         this.showCreated('DISH ADDED!');
       }, error => {
         this.showError('ERROR ADDING DISH');
+        this._router.navigate(['/dish']).catch();
       }
     );
+  }
+
+  getDishCategory(id: number): Observable<DishCategory>{
+    return this.http.get<DishCategory>(this.urlDishCategory+ '/' + id);
   }
 
   deleteDish(id: number) {
@@ -48,8 +53,53 @@ export class DishService {
         this.showError('DISH DELETED!');
       }, error => {
         this.showError('DISH DELETED!');
-        this._router.navigate(['/welcome']).catch();
+        this._router.navigate(['/dish']).catch();
       });
+  }
+
+  deleteDishCategory(id: number) {
+    this.http.delete(this.urlDishCategory + '/' + id).subscribe(
+      (data) => {
+        this._router.navigate(['/dish']).catch();
+        this.showError('DISH CATEGORY DELETED!');
+      }, error => {
+        this.showError('DISH CATEGORYDELETED!');
+        this._router.navigate(['/dish']).catch();
+      });
+  }
+
+  editDishCategory(name: string, id: number) {
+    console.log(name + " " + id);
+    let resultCategory = new DishCategory();
+    resultCategory.setName(name);
+    resultCategory.setId(id);
+    this.http.put(this.urlDishCategory, resultCategory).subscribe(
+      (data) => {
+        this._router.navigate(['/dish']).catch();
+        this.showCreated('DISH CATEGORY UPDATED!')
+      },error => {
+        this._router.navigate(['/dish']).catch();
+      }
+    );
+  }
+
+  addDishCategory(name: string) {
+    let dishCategory = new DishCategory();
+    let resultDishCategory;
+
+    dishCategory.setName(name);
+
+    this.http.post<DishCategory>(this.urlDishCategory , dishCategory).subscribe(
+      (data) => {
+        resultDishCategory = data;
+        this.showCreated('Dish Category Created Successfully!');
+        this._router.navigate(['/dish']).catch();
+      },
+      (error) => {
+        this.showError('DISH CATEGORY CREATION FAILED');
+        this._router.navigate(['/dish']).catch();
+      }
+    );
   }
 
   showCreated(text: string) {
