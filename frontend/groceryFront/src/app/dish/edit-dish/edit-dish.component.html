@@ -34,7 +34,7 @@
               <table class="table">
                 <thead>
                 <tr>
-                  <button style="margin-bottom: 10px;" class="btn btn-success">Add Ingredient</button>
+                  <button style="margin-bottom: 10px;" class="btn btn-success" (click)="openModal(mymodal)">Add Ingredient</button>
                 </tr>
                 <tr>
                   <th>Quantity</th>
@@ -53,8 +53,12 @@
         </div>
 
       </div>
-      <button type="submit" class="btn btn-success" [disabled]="EditDish.invalid">Edit</button>
+      <button type="submit" class="btn btn-success" style="margin-right: 10px;" [disabled]="EditDish.invalid">Edit</button>
       <button type="button" class="btn btn-info" (click)="cancel()">Cancel</button>
     </form>
   </div>
 </div>
+
+<ng-template #mymodal let-c="close" let-d="dismiss">
+  content in here
+</ng-template>

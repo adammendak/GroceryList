@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from "@angular/router";
 import { DishService } from "../../service/dish.service";
 import { Dish } from "../../model/dish";
 import { DishCategory } from "../../model/dishCategory";
 import { Ingredient } from "../../model/ingredient";
+import { ModalDismissReasons, NgbModal, NgbModalOptions } from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: 'app-edit-dish',
@@ -17,9 +18,12 @@ export class EditDishComponent {
   id: number;
   ingredients: Ingredient[];
 
+  closeResult: string;
+
   constructor(private _route: ActivatedRoute,
               private _dishService: DishService,
-              private _router: Router) {
+              private _router: Router,
+              private modalService: NgbModal) {
     this.getDishCategories();
     this.getDish();
   }
@@ -68,6 +72,24 @@ export class EditDishComponent {
 
   cancel(): void {
     this._router.navigate(['/dish']).catch();
+  }
+
+  openModal(content) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return  `with: ${reason}`;
+    }
   }
 
 }

@@ -15,7 +15,7 @@
         <i class="fas fa-key"></i><label for="password"> Password: </label>
         <input id="email" type="email" class="form-control" required placeholder="E-mail ..." name="email" [(ngModel)]="user.email">
       </div>
-      <button type="submit" class="btn btn-success" [disabled]="signUpForm.invalid">SignUp</button>
+      <button type="submit" class="btn btn-success" style="margin-right: 10px;" [disabled]="signUpForm.invalid">SignUp</button>
       <button type="button" class="btn btn-info" (click)="cancel()">Cancel</button>
     </form>
   </div>

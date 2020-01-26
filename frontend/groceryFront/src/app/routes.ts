@@ -12,12 +12,12 @@ import { EditProductCategoryComponent } from "./products/edit-product-category/e
 import { EditProductComponent } from "./products/edit-product/edit-product.component";
 import { AddDishComponent } from "./dish/add-dish/add-dish.component";
 import { EditDishComponent } from "./dish/edit-dish/edit-dish.component";
-import {AddDishCategoryComponent} from "./dish/add-dish-category/add-dish-category.component";
-import {EditDishCategoryComponent} from "./dish/edit-dish-category/edit-dish-category.component";
+import { AddDishCategoryComponent } from "./dish/add-dish-category/add-dish-category.component";
+import { EditDishCategoryComponent } from "./dish/edit-dish-category/edit-dish-category.component";
 
 export const routes = [
-  {path: 'welcome', component: WelcomeComponent},
   {path: 'error', component: ErrorComponent},
+  {path: 'welcome', component: WelcomeComponent},
   {path: 'user/login', component: LoginComponent},
   {path: 'user/signUp', component: SignInComponent},
   {path: 'mylist', component: MylistComponent},

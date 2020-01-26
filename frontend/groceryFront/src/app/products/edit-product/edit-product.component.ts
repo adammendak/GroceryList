@@ -48,9 +48,12 @@ export class EditProductComponent {
 
   editProduct(productForm): void {
     let resultProduct = new Product();
+    let productCategory = new ProductCategory();
+    productCategory.setName(this.categorySelected);
+
     resultProduct.setId(this.id);
     resultProduct.setName(productForm.product);
-    resultProduct.setProductCategory(this.categorySelected);
+    resultProduct.setProductCategory(productCategory);
     resultProduct.setUnit(this.unitSelected);
     this._productService.editProduct(resultProduct);
   }

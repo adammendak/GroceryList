@@ -28,6 +28,7 @@ import { AddDishComponent } from './dish/add-dish/add-dish.component';
 import { EditDishComponent } from './dish/edit-dish/edit-dish.component';
 import { AddDishCategoryComponent } from './dish/add-dish-category/add-dish-category.component';
 import { EditDishCategoryComponent } from './dish/edit-dish-category/edit-dish-category.component';
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { EditDishCategoryComponent } from './dish/edit-dish-category/edit-dish-c
     FormsModule,
     ToastrModule.forRoot(),
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgbModule
   ],
   providers: [UserAuthService],
   bootstrap: [AppComponent]
