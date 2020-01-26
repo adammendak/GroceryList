@@ -42,6 +42,13 @@ public class DishService {
                 .collect(Collectors.toList());
     }
 
+    public List<DishDto> findByDishCategory(String name) {
+        return dishRepository.findByCategories_Name(name)
+                .stream()
+                .map(dishMapper::toDto)
+                .collect(Collectors.toList());
+    }
+
     public DishDto save(@Valid DishDto dto) throws ResourceNotFoundException {
         Dish dish = dishMapper.toEntity(dto);
         Dish saved = persistDish(dto, dish);

@@ -7,6 +7,7 @@ import { Observable } from "rxjs";
 import { applicationProperties } from "../properties";
 import { DishCategory } from "../model/dishCategory";
 import {ProductCategory} from "../model/productCategory";
+import {Product} from "../model/product";
 
 @Injectable({
   providedIn: 'root'
@@ -44,6 +45,10 @@ export class DishService {
 
   getDishCategory(id: number): Observable<DishCategory>{
     return this.http.get<DishCategory>(this.urlDishCategory+ '/' + id);
+  }
+
+  getDishesForCategory(name: string) {
+    return this.http.get<Dish[]>(this.urlDish + '/getByName/' + name);
   }
 
   deleteDish(id: number) {

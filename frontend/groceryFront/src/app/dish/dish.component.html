@@ -26,7 +26,10 @@
 
 <div class="panel panel-primary">
   <div class="panel-heading">
-    Dish List
+    Dishes of category
+    <select class="form-control" id="operator-groups" (change)="getDishesForCategoryEvent($event)">
+      <option *ngFor="let dishCategory of categories; let i = index;" [ngValue]="dishCategory.id">{{dishCategory.name}}</option>
+    </select>
   </div>
   <div class="panel-body">
     <div class="row">

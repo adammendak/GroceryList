@@ -31,6 +31,13 @@ public class DishController {
                 .body(dishService.findAll());
     }
 
+    @GetMapping(value = "/getByName/{name}")
+    public ResponseEntity getProductsForName(@PathVariable String name) {
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(dishService.findByDishCategory(name));
+    }
+
     @PostMapping
     public ResponseEntity createDish(@Valid @RequestBody DishDto dishDto) throws ResourceNotFoundException {
         return ResponseEntity

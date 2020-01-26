@@ -60,4 +60,22 @@ export class DishComponent {
     this._router.navigate(['/welcome']).catch();
   }
 
+  // private getLocalDishCategories() {
+  //   this._dish.getDishes().subscribe(
+  //     (data) => {
+  //       this.productCategories = data;
+  //       this.getProductsForCategory(this.productCategories[0].name)
+  //     }
+  //   );
+  // }
+
+  getDishesForCategoryEvent(id) {
+    this._dish.getDishesForCategory(id.target.value).subscribe(
+      (data) => {
+        this.dishes = data;
+        console.log(this.dishes);
+      }
+    )
+  }
+
 }
