@@ -21,15 +21,7 @@ export class DishComponent {
   constructor(public _auth: UserAuthService,
               public _dish: DishService,
               private _router: Router) {
-    this._dish.getDishes().subscribe(
-      (data) => {
-        this.dishes = data;
-        this.filteredDishes = data;
-      });
-    this._dish.getDishCategories().subscribe(
-      (data) => {
-        this.categories = data;
-      })
+    this.getLocalDishCategories();
   }
 
   adjustFilter(filter: string) {
@@ -60,20 +52,28 @@ export class DishComponent {
     this._router.navigate(['/welcome']).catch();
   }
 
-  // private getLocalDishCategories() {
-  //   this._dish.getDishes().subscribe(
-  //     (data) => {
-  //       this.productCategories = data;
-  //       this.getProductsForCategory(this.productCategories[0].name)
-  //     }
-  //   );
-  // }
+  private getLocalDishCategories() {
+    this._dish.getDishCategories().subscribe(
+      (data) => {
+        this.categories = data;
+        this.getDishesForCategory(this.categories[0].name);
+      });
+  }
+
+  getDishesForCategory(name :string) {
+    this._dish.getDishesForCategory(name).subscribe(
+      (data) => {
+        this.dishes = data;
+        this.filteredDishes = data;
+      }
+    )
+  }
 
   getDishesForCategoryEvent(id) {
     this._dish.getDishesForCategory(id.target.value).subscribe(
       (data) => {
         this.dishes = data;
-        console.log(this.dishes);
+        this.filteredDishes = data;
       }
     )
   }
