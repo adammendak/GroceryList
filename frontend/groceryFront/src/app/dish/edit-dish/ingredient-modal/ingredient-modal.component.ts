@@ -1,5 +1,6 @@
-import { Component, Inject } from '@angular/core';
+import {Component, HostListener, Inject} from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
+import { Ingredient } from "../../../model/ingredient";
 
 @Component({
   selector: 'app-ingredient-modal',
@@ -7,23 +8,27 @@ import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
 })
 export class IngredientModalComponent {
 
-  message: string = "";
-  cancelButtonText = "Cancel";
+  ingredient: Ingredient;
 
   constructor(
-    @Inject(MAT_DIALOG_DATA) private data: any,
-    private dialogRef: MatDialogRef<IngredientModalComponent>) {
-    if (data) {
-      this.message = data.message || this.message;
-      if (data.buttonText) {
-        this.cancelButtonText = data.buttonText.cancel || this.cancelButtonText;
-      }
+    @Inject(MAT_DIALOG_DATA) public data: Ingredient,
+    public dialogRef: MatDialogRef<IngredientModalComponent>) {
+    dialogRef.disableClose = true;
+    if(data) {
+      this.ingredient = data;
     }
-    this.dialogRef.updateSize('300vw','300vw')
   }
 
-  onConfirmClick(): void {
-    this.dialogRef.close(true);
+  @HostListener('window:keyup.esc') onKeyUp() {
+    this.dialogRef.close();
+  }
+
+  cancelModal(): void {
+    this.dialogRef.close();
+  }
+
+  save() {
+    this.dialogRef.close(this.ingredient);
   }
 
 }

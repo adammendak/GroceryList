@@ -30,6 +30,7 @@ import { AddDishCategoryComponent } from './dish/add-dish-category/add-dish-cate
 import { EditDishCategoryComponent } from './dish/edit-dish-category/edit-dish-category.component';
 import { IngredientModalComponent } from './dish/edit-dish/ingredient-modal/ingredient-modal.component';
 import { MaterialModule } from "./material.module";
+import { MatDialogModule } from "@angular/material/dialog";
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { MaterialModule } from "./material.module";
     ToastrModule.forRoot(),
     HttpClientModule,
     BrowserAnimationsModule,
+    MatDialogModule,
     MaterialModule
   ],
   providers: [UserAuthService],

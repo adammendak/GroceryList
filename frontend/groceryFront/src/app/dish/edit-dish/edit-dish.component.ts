@@ -4,7 +4,7 @@ import { DishService } from "../../service/dish.service";
 import { Dish } from "../../model/dish";
 import { DishCategory } from "../../model/dishCategory";
 import { Ingredient } from "../../model/ingredient";
-import { MatDialog } from "@angular/material/dialog";
+import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import { IngredientModalComponent } from "./ingredient-modal/ingredient-modal.component";
 
 @Component({
@@ -78,35 +78,23 @@ export class EditDishComponent implements OnInit {
     this._router.navigate(['/dish']).catch();
   }
 
-  openDialog() {
-    const dialogRef = this.dialog.open(IngredientModalComponent, {
-      width: '250px',
-      data: {message: 'HelloWorld'}
-    });
+  openDialogNewIngredient() {
+    const dialogConfig = new MatDialogConfig();
 
-    dialogRef.afterClosed().subscribe(result => {
-      this.message = result;
-    });
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.closeOnNavigation = true;
 
-    // const dialogConfig = new MatDialogConfig();
-    //
-    // dialogConfig.disableClose = true;
-    // dialogConfig.autoFocus = true;
-    //
-    // this.dialog.open(IngredientModalComponent, dialogConfig);
-    // this.ingredientModalRef = this.dialog.open(IngredientModalComponent);
+
+    const dialogRef = this.dialog.open(IngredientModalComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe(
+      data => console.log("Dialog output:", data)
+    );
+    // dialogRef.afterClosed().subscribe(result => {
+    //   // this.message = result;
+    //   console.log(result)
+    // });
   }
-
-  // openDialog() {
-  //   const dialogRef = this.dialog.open(IngredientModalComponent,{
-  //     data:{
-  //       message: 'HelloWorld',
-  //       buttonText: {
-  //         cancel: 'Done'
-  //       }
-  //     },
-  //   });
-  // }
-
 
 }
