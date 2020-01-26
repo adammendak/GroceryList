@@ -1,11 +1,11 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from "@angular/router";
 import { DishService } from "../../service/dish.service";
 import { Dish } from "../../model/dish";
 import { DishCategory } from "../../model/dishCategory";
 import { Ingredient } from "../../model/ingredient";
-import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
-import { IngredientModalComponent } from "./ingredient-modal/ingredient-modal.component";
+import { Product } from "../../model/product";
+import { ProductService } from "../../service/product.service";
 
 @Component({
   selector: 'app-edit-dish',
@@ -19,17 +19,20 @@ export class EditDishComponent implements OnInit {
   id: number;
   ingredients: Ingredient[];
 
-  message: string;
+  newProduct: string;
+  newIngredientQuantity: number;
+  products: Product[];
+
 
   constructor(private _route: ActivatedRoute,
               private _dishService: DishService,
               private _router: Router,
-              private dialog: MatDialog) {
-  }
+              private _productService: ProductService) { }
 
   ngOnInit(): void {
     this.getDishCategories();
     this.getDish();
+    this.getProducts();
   }
 
   editDish(dishForm) {
@@ -44,6 +47,7 @@ export class EditDishComponent implements OnInit {
     resultDish.setDifficultyLevel(dishForm.value.difficultyLevel);
     resultDish.setNumberOfServings(dishForm.value.numberOfServings);
     resultDish.setCategories(dishCategories);
+    resultDish.setIngredients(this.ingredients);
     this._dishService.editDish(resultDish);
   }
 
@@ -62,8 +66,6 @@ export class EditDishComponent implements OnInit {
         this.categorySelected = this.dish.categories[0].name;
         this.id = this.dish.id;
         this.ingredients = this.dish.ingredients;
-        console.log(this.dish);
-        console.log(this.ingredients);
       });
   }
 
@@ -74,27 +76,33 @@ export class EditDishComponent implements OnInit {
       })
   }
 
+  private getProducts() {
+    this._productService.getProducts().subscribe(
+      (data) => {
+        this.products = data;
+        this.newProduct = this.products[0].name;
+      })
+  }
+
   cancel(): void {
     this._router.navigate(['/dish']).catch();
   }
 
-  openDialogNewIngredient() {
-    const dialogConfig = new MatDialogConfig();
+  addNewIngredientToList() {
+    let ingredient = new Ingredient();
+    let prd = this.products.filter(p => p.name === this.newProduct)[0];
+    ingredient.setQuantity(this.newIngredientQuantity);
+    ingredient.setProduct(prd);
+    this.ingredients.push(ingredient);
+    this.newIngredientQuantity = null;
+  }
 
-    dialogConfig.disableClose = true;
-    dialogConfig.autoFocus = true;
-    dialogConfig.closeOnNavigation = true;
+  setNewIngredientProduct(ingredientName) {
+    this.newProduct = ingredientName.target.value;
+  }
 
-
-    const dialogRef = this.dialog.open(IngredientModalComponent, dialogConfig);
-
-    dialogRef.afterClosed().subscribe(
-      data => console.log("Dialog output:", data)
-    );
-    // dialogRef.afterClosed().subscribe(result => {
-    //   // this.message = result;
-    //   console.log(result)
-    // });
+  deleteIngredient(ingredient: Ingredient) {
+    this.ingredients = this.ingredients.filter(p => p !== ingredient);
   }
 
 }

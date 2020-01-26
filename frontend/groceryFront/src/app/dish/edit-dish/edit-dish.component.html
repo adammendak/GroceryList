@@ -34,15 +34,37 @@
               <table class="table">
                 <thead>
                 <tr>
-                  <button type="button" style="margin-bottom: 10px;" class="btn btn-success" (click)="openDialogNewIngredient()">Add Ingredient</button>
+                  <th>Add New Ingredient</th>
+                  <th>Quantity</th>
+                  <th>Product</th>
+                 </tr>
+                <tr>
+                  <td>
+                    <button *ngIf="newIngredientQuantity" type="button" class="btn btn-info" (click)="addNewIngredientToList()">Add Ingredient</button>
+                  </td>
+                  <td>
+                    <input id="newIngredientQuantity" type="number" class="form-control" required placeholder="" name="newIngredientQuantity" [(ngModel)] = "newIngredientQuantity">
+                  </td>
+                  <td>
+                  <select (change)="setNewIngredientProduct($event)">
+                    <option *ngFor="let product of products; let i = index;" [ngValue]="product" >{{product.name}}</option>
+                  </select>
+                  </td>
                 </tr>
+                <th>
+                  Existing ingredients
+                </th>
                 <tr>
                   <th>Quantity</th>
                   <th>Name</th>
+                  <th>Delete Ingredient</th>
                 </tr>
                 <tr *ngFor="let ingredient of ingredients">
                   <td>{{ingredient.quantity}}</td>
                   <td>{{ingredient.product.name}}</td>
+                  <td>
+                    <button type="button" class="btn btn-danger" (click)="deleteIngredient(ingredient)">Delete Ingredient</button>
+                  </td>
                 </tr>
                 </thead>
                 <tbody>

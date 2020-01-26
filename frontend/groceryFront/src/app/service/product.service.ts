@@ -125,6 +125,10 @@ export class ProductService {
     );
   }
 
+  getProducts(): Observable<Product[]> {
+    return this.http.get<Product[]>(this.urlProducts);
+  }
+
   getProductObservables(): Observable<ProductCategory[]> {
     return this.http.get<ProductCategory[]>(this.urlCategories);
   }
