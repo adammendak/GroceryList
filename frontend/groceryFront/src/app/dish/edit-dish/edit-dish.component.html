@@ -21,9 +21,37 @@
       </div>
       <div class="form-group">
         <i class="fas fa-user"></i><label>Dish Category: </label>
-        <select class="form-control" (change)="setDishCategory($event)">
+        <select class="form-control" style="margin-bottom: 20px;" (change)="setDishCategory($event)">
           <option *ngFor="let category of categories; let i = index;" [ngValue]="category" [selected]="isSelectedCategory(category.name)">{{category.name}}</option>
         </select>
+
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            Ingredients
+          </div>
+          <div class="panel-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                <tr>
+                  <button style="margin-bottom: 10px;" class="btn btn-success">Add Ingredient</button>
+                </tr>
+                <tr>
+                  <th>Quantity</th>
+                  <th>Name</th>
+                </tr>
+                <tr *ngFor="let ingredient of ingredients">
+                  <td>{{ingredient.quantity}}</td>
+                  <td>{{ingredient.product.name}}</td>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
       </div>
       <button type="submit" class="btn btn-success" [disabled]="EditDish.invalid">Edit</button>
       <button type="button" class="btn btn-info" (click)="cancel()">Cancel</button>

@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { DishService } from "../../service/dish.service";
 import { Router } from "@angular/router";
-import {DishCategory} from "../../model/dishCategory";
-import {Product} from "../../model/product";
-import {Dish} from "../../model/dish";
+import { DishCategory } from "../../model/dishCategory";
+import { Dish } from "../../model/dish";
 
 @Component({
   selector: 'app-add-dish',

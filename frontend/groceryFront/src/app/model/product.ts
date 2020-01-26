@@ -1,5 +1,3 @@
-import {ProductCategory} from "./productCategory";
-
 export interface IProduct {
   id: number;
   name: string;

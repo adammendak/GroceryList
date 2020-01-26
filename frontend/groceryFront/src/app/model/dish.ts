@@ -1,4 +1,5 @@
 import { DishCategory } from "./dishCategory";
+import { Ingredient } from "./ingredient";
 
 export interface IDish {
   id: number;
@@ -7,6 +8,7 @@ export interface IDish {
   difficultyLevel: string;
   numberOfServings: number;
   categories: DishCategory[];
+  ingredients: Ingredient[];
 }
 
 export class Dish implements IDish {
@@ -16,6 +18,7 @@ export class Dish implements IDish {
   difficultyLevel: string;
   numberOfServings: number;
   categories: DishCategory[];
+  ingredients: Ingredient[];
 
   setId(id: number): void {
     this.id = id;
@@ -40,5 +43,9 @@ export class Dish implements IDish {
 
   setCategories(value: DishCategory[]) {
     this.categories = value;
+  }
+
+  setIngredients(value: Ingredient[]) {
+    this.ingredients = value;
   }
 }

@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { DishService } from "../../service/dish.service";
 import { Dish } from "../../model/dish";
 import { DishCategory } from "../../model/dishCategory";
+import { Ingredient } from "../../model/ingredient";
 
 @Component({
   selector: 'app-edit-dish',
@@ -14,6 +15,7 @@ export class EditDishComponent {
   categories: DishCategory[];
   categorySelected: string;
   id: number;
+  ingredients: Ingredient[];
 
   constructor(private _route: ActivatedRoute,
               private _dishService: DishService,
@@ -51,6 +53,9 @@ export class EditDishComponent {
         this.dish = data;
         this.categorySelected = this.dish.categories[0].name;
         this.id = this.dish.id;
+        this.ingredients = this.dish.ingredients;
+        console.log(this.dish);
+        console.log(this.ingredients);
       });
   }
 
