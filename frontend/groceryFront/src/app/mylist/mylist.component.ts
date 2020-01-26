@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
-import { IDish } from "../model/dish";
-import { IProduct } from "../model/product";
+import { Dish } from "../model/dish";
+import { MyListService } from "../service/my-list.service";
+import { DishService } from "../service/dish.service";
+import { DishCategory } from "../model/dishCategory";
+import {Ingredient} from "../model/ingredient";
 
 @Component({
   selector: 'app-mylist',
@@ -10,19 +13,33 @@ export class MylistComponent {
 
   pageTitle: string = "My Grocery List";
   _listFilter: string;
-  showImage: boolean = false;
 
-  filteredDishes: IDish[];
-  dishes: IDish[] = [];
+  dishes: Dish[] = [];
+  categories: DishCategory[];
+  ingredients: Ingredient[] = [];
 
-  products: IProduct[] = [];
-
-  imageWidth: number = 500;
-  imageMargin: number = 2;
-
-  constructor() { }
-
-  toggleImg(): void {
-    this.showImage = !this.showImage;
+  constructor(private listService: MyListService,
+              private _dishesService: DishService) {
+    this.dishes = listService.myList;
+    this._dishesService.getDishCategories().subscribe(
+      (data) => {
+        this.categories = data;
+      });
+    this.extractIngredient();
   }
+
+  private extractIngredient() {
+    this.ingredients = [];
+    this.dishes.forEach(p => {
+      p.ingredients.forEach(x => this.ingredients.push(x))
+    })
+  }
+
+  deleteDish(dish: Dish) {
+    this.listService.myList = this.listService.myList.filter(p => p!== dish);
+    this.listService.numberOfDishes = this.listService.myList.length;
+    this.dishes = this.listService.myList;
+    this.extractIngredient();
+  }
+
 }

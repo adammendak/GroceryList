@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { Dish } from "../model/dish";
 import { DishService } from "../service/dish.service";
-import {Router} from "@angular/router";
-import {UserAuthService} from "../service/user-auth.service";
-import {DishCategory} from "../model/dishCategory";
+import { Router } from "@angular/router";
+import { UserAuthService } from "../service/user-auth.service";
+import { DishCategory } from "../model/dishCategory";
+import { MyListService } from "../service/my-list.service";
 
 @Component({
   selector: 'app-dish',
@@ -20,7 +21,8 @@ export class DishComponent {
 
   constructor(public _auth: UserAuthService,
               public _dish: DishService,
-              private _router: Router) {
+              private _router: Router,
+              private _myList: MyListService) {
     this.getLocalDishCategories();
   }
 
@@ -76,6 +78,10 @@ export class DishComponent {
         this.filteredDishes = data;
       }
     )
+  }
+
+  addThisToMyList(dish: Dish) {
+    this._myList.addDish(dish);
   }
 
 }

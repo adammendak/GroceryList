@@ -25,6 +25,56 @@
           <option *ngFor="let category of categories; let i = index;" [ngValue]="category" [selected]="isSelected(category.name)">{{category.name}}</option>
         </select>
       </div>
+
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          Ingredients
+        </div>
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+              <tr>
+                <th>Add New Ingredient</th>
+                <th>Quantity</th>
+                <th>Product</th>
+              </tr>
+              <tr>
+                <td>
+                  <button *ngIf="newIngredientQuantity" type="button" class="btn btn-info" (click)="addNewIngredientToList()">Add Ingredient</button>
+                </td>
+                <td>
+                  <input id="newIngredientQuantity" type="number" class="form-control" required placeholder="" name="newIngredientQuantity" [(ngModel)] = "newIngredientQuantity">
+                </td>
+                <td>
+                  <select (change)="setNewIngredientProduct($event)">
+                    <option *ngFor="let product of products; let i = index;" [ngValue]="product" >{{product.name}}</option>
+                  </select>
+                </td>
+              </tr>
+              <th>
+                Existing ingredients
+              </th>
+              <tr>
+                <th>Quantity</th>
+                <th>Name</th>
+                <th>Delete Ingredient</th>
+              </tr>
+              <tr *ngFor="let ingredient of ingredients">
+                <td>{{ingredient.quantity}}</td>
+                <td>{{ingredient.product.name}}</td>
+                <td>
+                  <button type="button" class="btn btn-danger" (click)="deleteIngredient(ingredient)">Delete Ingredient</button>
+                </td>
+              </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
       <button type="submit" class="btn btn-success" style="margin-right: 10px;" [disabled]="AddDish.invalid">Add</button>
       <button type="button" class="btn btn-info" (click)="cancel()">Cancel</button>
     </form>

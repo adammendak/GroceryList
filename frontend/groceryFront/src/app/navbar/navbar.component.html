@@ -9,7 +9,7 @@
     <ul class="nav navbar-nav navbar-right">
       <li><a [routerLink]="['/user/login']" class="btn-info" *ngIf="!this._auth.isAuthenticated">Login</a></li>
       <li class="navbar-text" *ngIf="this._auth.isAuthenticated">Signed in as <b>{{_auth.currentUser.userName}}</b></li>
-      <li *ngIf="this._auth.isAuthenticated"><a [routerLink]="['/mylist']" routerLinkActive="active">My List</a></li>
+      <li *ngIf="this._auth.isAuthenticated"><a [routerLink]="['/mylist']" routerLinkActive="active">My List <span *ngIf="this._myList.numberOfDishes != 0">{{this._myList.numberOfDishes}}</span></a></li>
       <li><a [routerLink]="['/']" routerLinkActive="active" class="btn-danger" *ngIf="this._auth.isAuthenticated" (click)="logout()">Logout</a></li>
     </ul>
   </div>

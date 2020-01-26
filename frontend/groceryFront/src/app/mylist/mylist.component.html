@@ -1,40 +1,26 @@
 <div class="panel panel-primary">
   <div class="panel-heading">
-    {{pageTitle}}
+    My Dishes
   </div>
   <div class="panel-body">
-    <div class="row">
-      <div class="col-md-2">Filter by description:</div>
-      <div class="col-md-4">
-        <input type="text" [(ngModel)] = '_listFilter'>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-6"><h3>Filtered by: {{_listFilter}}</h3></div>
-    </div>
     <div class="table-responsive">
-      <table class="table" *ngIf="dishes && dishes.length">
+      <table class="table">
         <thead>
         <tr>
-          <th>
-            <button class="btn btn-primary" (click)="toggleImg()"> {{showImage ? 'Hide' : 'Show'}} Image</button>
-          </th>
           <th>Description</th>
-          <th>Prepare Time</th>
+          <th>Prepare Time Minutes</th>
           <th>Difficulty Level</th>
           <th>Number Of Servings</th>
+          <th>Dish Category</th>
+          <th>DELETE</th>
         </tr>
-        <tr *ngFor="let dish of filteredDishes">
-          <td><img [src]="dish.photoURL"
-                   [title] = "dish.description"
-                   [style.width.px] = "imageWidth"
-                   [style.margin.px] = "imageMargin"
-                   *ngIf="showImage">
-          </td>
-          <td><i class="fas fa-link"></i> <a [routerLink]="['/dishes', dish.id]">{{dish.description}}</a></td>
+        <tr *ngFor="let dish of dishes">
+          <td>{{dish.description}}</td>
           <td>{{dish.prepareTime}}</td>
           <td>{{dish.difficultyLevel}}</td>
           <td>{{dish.numberOfServings}}</td>
+          <td>{{dish.categories[0].name}}</td>
+          <td><button class="btn btn-danger" (click)="deleteDish(dish)">X</button></td>
         </tr>
         </thead>
         <tbody>
@@ -42,41 +28,31 @@
       </table>
     </div>
     <div *ngIf="dishes.length == 0">
-      <p>There are no products to show.</p>
+      <p>There are no dishes to show.</p>
     </div>
 
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        Ingredients to buy
+      </div>
+      <div class="panel-body">
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+            <tr>
+              <th>Quantity</th>
+              <th>Product</th>
+            </tr>
+            <tr *ngFor="let ingredient of ingredients">
+              <td>{{ingredient.quantity}}</td>
+              <td>{{ingredient.product.name}}</td>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-
-<div class="panel panel-info">
-  <div class="panel-heading">
-    Products to Buy
-  </div>
-  <div class="panel-body">
-    <div class="table-responsive">
-      <table class="table" *ngIf="products && products.length">
-        <thead>
-        <tr>
-          <th>Name</th>
-          <th>Unit</th>
-          <th>Quantity</th>
-          <th>Product Category</th>
-        </tr>
-        <tr *ngFor="let product of products">
-          <td>{{product.name}}</td>
-          <td>{{product.unit}}</td>
-          <td>{{product.quantity}}</td>
-          <td>{{product.productCategory}}</td>
-        </tr>
-        </thead>
-        <tbody>
-        </tbody>
-      </table>
-    </div>
-    <div *ngIf="products.length == 0">
-      <p>There are no products to buy.</p>
-    </div>
-
-  </div>
-</div>
-

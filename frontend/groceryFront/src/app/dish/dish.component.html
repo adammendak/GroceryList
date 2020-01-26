@@ -54,7 +54,7 @@
           <th *ngIf="this._auth.isAuthenticated">DELETE</th>
         </tr>
         <tr *ngFor="let dish of filteredDishes">
-          <td *ngIf="this._auth.isAuthenticated"><button class="btn btn-success">Add</button></td>
+          <td *ngIf="this._auth.isAuthenticated"><button class="btn btn-success" (click)="addThisToMyList(dish)">Add</button></td>
           <td *ngIf="this._auth.isAuthenticated; else notAuthored"><a [routerLink]="['/editDish', dish.id]">{{dish.description}}</a></td>
           <ng-template #notAuthored>
             <td>{{dish.description}}</td>
