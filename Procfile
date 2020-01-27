@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -cp target/classes:target/dependency/* CoreApplication
+web: java $JAVA_OPTS -cp target/classes:target/dependency/* com.grocerylist.core.CoreApplication
