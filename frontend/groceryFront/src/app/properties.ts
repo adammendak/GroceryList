@@ -1,4 +1,4 @@
-const rootUrl = 'http://localhost:8080';
+const rootUrl = 'https://rocky-chamber-54408.herokuapp.com/';
 
 export const applicationProperties = {
   userApi: rootUrl + '/api/user',
