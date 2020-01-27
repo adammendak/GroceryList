@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -cp target/classes:target/dependency/* com.grocerylist.core.CoreApplication
+web: java -Dserver.port=$PORT -jar $PATH_TO_JAR
