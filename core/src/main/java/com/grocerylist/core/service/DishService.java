@@ -90,8 +90,8 @@ public class DishService {
                         return ingredient;
                     })
                     .collect(Collectors.toList());
-            dish.setIngredients(ingredients);
             ingredients.forEach(ingredientService::save);
+            dish.setIngredients(ingredients);
         }
 
         dish.setCategories(dishCategories);
