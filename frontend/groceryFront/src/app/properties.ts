@@ -1,4 +1,5 @@
-const rootUrl = 'https://rocky-chamber-54408.herokuapp.com/';
+//const rootUrl = 'https://rocky-chamber-54408.herokuapp.com/';
+const rootUrl = 'https:localhost/';
 
 export const applicationProperties = {
   userApi: rootUrl + '/api/user',
