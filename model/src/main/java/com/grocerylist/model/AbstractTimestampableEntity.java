@@ -6,7 +6,11 @@ import org.springframework.data.jpa.convert.threeten.Jsr310JpaConverters.LocalDa
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-
+/**
+ * @author  Adam Mendak
+ * @version 1.0
+ * @since   2019-11-09
+ */
 @MappedSuperclass
 @Getter
 @Setter

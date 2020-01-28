@@ -10,6 +10,13 @@ import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotNull;
 
+/**
+ * @author Adam Mendak
+ * @version 1.0
+ * @since 2019-12-03
+ * This class contains data structure type (DTO) for Unit
+ * It contains only field which are managed by service.class
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

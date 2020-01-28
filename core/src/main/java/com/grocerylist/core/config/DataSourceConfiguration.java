@@ -8,7 +8,11 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
 import javax.sql.DataSource;
-
+/**
+ * @author  Adam Mendak
+ * @version 1.0
+ * @since   2020-01-27
+ */
 @Configuration
 @Profile(value = "prod")
 public class DataSourceConfiguration {

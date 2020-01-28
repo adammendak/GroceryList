@@ -17,7 +17,14 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
-
+/**
+ * @author  Adam Mendak
+ * @version 1.0
+ * @since   2019-10-20
+ *
+ *  This class is for executes the operation on the database
+ *
+ */
 @Service
 @RequiredArgsConstructor
 public class DishService {

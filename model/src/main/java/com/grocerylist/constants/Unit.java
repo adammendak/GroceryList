@@ -7,7 +7,15 @@ import lombok.Getter;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
-
+/**
+ * @author  Adam Mendak
+ * @version 1.0
+ * @since   2019-10-19
+ *
+ * This class contains units that can be used in database
+ * Contains method to call List of all units
+ *
+ */
 @AllArgsConstructor
 @Getter
 public enum Unit {

@@ -4,7 +4,13 @@ import com.grocerylist.constants.Unit;
 import lombok.Data;
 
 import javax.persistence.*;
-
+/**
+ * @author  Adam Mendak
+ * @version 1.0
+ * @since   2019-10-20
+ *
+ * Abstract class which contains fields for holding entered product data
+ */
 @Data
 @Entity
 @Table(name = "PRODUCT")

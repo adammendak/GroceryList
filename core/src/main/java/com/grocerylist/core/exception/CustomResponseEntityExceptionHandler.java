@@ -13,7 +13,14 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 import javax.validation.ValidationException;
 import java.time.LocalDateTime;
-
+/**
+ * @author  Elżbieta Dutkiewicz
+ * @version 1.0
+ * @since   2020-01-15
+ *
+ * This class contains method to handle with exceptions
+ * @extends ResponseEntityExceptionHandler
+ */
 @Component
 @RestController
 @ControllerAdvice

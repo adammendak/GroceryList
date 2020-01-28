@@ -11,14 +11,24 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.MockitoAnnotations;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.*;
-
+/**
+ * @author  Elżbieta Dutkiewicz
+ * @version 1.0
+ * @since   2019-01-21
+ *
+ *  This is test class for check if UserService works properly
+ *  Contains test method from mockito library
+ */
 public class UserServiceTest {
 
     UserService userService;
@@ -151,15 +161,37 @@ public class UserServiceTest {
 
     }
 
-
-    //TODO: to implements
     @Test
     public void findAll() throws UserNotExistException {
 //       given
+        Long id = 1L;
+        String userName = "testName";
+        String password = "testPassword";
+        String email = "test@gmail.com";
+
+        Client client = new Client();
+        client.setId(id);
+        client.setUserName(userName);
+        client.setEmail(email);
+        client.setPassword(password);
+
+
+
+        UserDto expected = new UserDto(id, userName, email, password);
+
+        given(clientRepository
+                .findAll())
+                .willReturn(Arrays.asList(client, client));
+//        given(userMapper.toDto(client)).willReturn(expected);
+        given(userMapper.toDto(any(Client.class))).willReturn(new UserDto(id, userName, email, password));
+//       when
+        List<UserDto>actual = userService.findAll();
 
 //       then
+        assertEquals(2, actual.size());
+        assertEquals(expected, actual.get(0));
+        assertEquals(expected, actual.get(1));
 
-//       when
     }
 
     @Test
