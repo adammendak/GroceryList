@@ -1,8 +1,6 @@
 package com.grocerylist.core.controller;
 
 import com.grocerylist.core.CoreApplication;
-import com.grocerylist.dto.UserDto;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
