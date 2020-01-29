@@ -4,7 +4,13 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.util.List;
-
+/**
+ * @author  Adam Mendak
+ * @version 1.0
+ * @since   2019-10-19
+ *  *
+ *  * Abstract class which contains fields for holding entered product category data
+ */
 @Data
 @Entity
 @Table(name = "PRODUCT_CATEGORY")

@@ -3,7 +3,11 @@ package com.grocerylist.core.config;
 import com.grocerylist.mapper.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
+/**
+ * @author  Adam Mendak
+ * @version 1.0
+ * @since   2019-12-03
+ */
 @Configuration
 public class Mappers {
 

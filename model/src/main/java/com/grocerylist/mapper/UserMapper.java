@@ -7,6 +7,13 @@ import com.grocerylist.model.Client;
 import com.grocerylist.model.User;
 import org.mapstruct.Mapper;
 
+/**
+ * @author Adam Mendak
+ * @version 1.0
+ * @since 2019-11-14
+ *
+ * this is interface using for transfer simple object to DTO
+ */
 @Mapper
 public interface UserMapper {
 

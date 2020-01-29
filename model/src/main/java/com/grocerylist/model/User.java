@@ -3,7 +3,13 @@ package com.grocerylist.model;
 import lombok.Data;
 
 import javax.persistence.*;
-
+/**
+ * @author  Adam Mendak
+ * @version 1.0
+ * @since   2019-10-19
+ *
+ * Abstract class which contains fields for holding entered user data
+ */
 @Data
 @MappedSuperclass
 public abstract class User extends AbstractTimestampableEntity {

@@ -11,7 +11,12 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
-
+/**
+ * @author  Adam Mendak
+ * @version 1.0
+ * @since   2019-12-03
+ * This class implements CommandLineRunner.interface
+ */
 @Profile("dev")
 @Slf4j
 @RequiredArgsConstructor

@@ -8,7 +8,11 @@ import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
-
+/**
+ * @author  Adam Mendak
+ * @version 1.0
+ * @since   2019-11-09
+ */
 @Profile(value = "dev")
 @Configuration
 @EnableSwagger2

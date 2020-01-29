@@ -15,7 +15,14 @@ import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-
+/**
+ * @author  Adam Mendak
+ * @version 1.0
+ * @since   2019-12-03
+ *
+ *  This class is for executes the operation on the database
+ *
+ */
 @Service
 @RequiredArgsConstructor
 public class ProductService {
