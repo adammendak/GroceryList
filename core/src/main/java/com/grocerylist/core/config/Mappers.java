@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Configuration;
  * @author  Adam Mendak
  * @version 1.0
  * @since   2019-12-03
+ * this is a configuration class that initializes mapper beans for Spring boot context
  */
 @Configuration
 public class Mappers {

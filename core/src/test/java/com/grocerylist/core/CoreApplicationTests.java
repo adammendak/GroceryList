@@ -10,6 +10,7 @@ import org.springframework.test.context.junit4.SpringRunner;
  * @author  Adam Mendak
  * @version 1.0
  * @since   2019-10-06
+ * spring boot context test
  */
 @RunWith(SpringRunner.class)
 @ActiveProfiles("dev")

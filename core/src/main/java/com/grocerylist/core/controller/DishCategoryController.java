@@ -26,8 +26,8 @@ public class DishCategoryController {
     /**
      * getDishCategory() method accepts the request for GET
      *
-     * @param id
-     * @return ResponseEntity
+     * @param id - of Dish Category to be found
+     * @return ResponseEntity with DishCategory DTO
      * @throws ResourceNotFoundException
      */
     @GetMapping(value = "/{id}")
@@ -39,7 +39,7 @@ public class DishCategoryController {
     /**
      * getAllDishCategories() method accepts the request for GET
      *
-     * @return ResponseEntity
+     * @return ResponseEntity with all DishCategory DTO's in database
      */
     @GetMapping
     public ResponseEntity getAllDishCategories() {
@@ -51,7 +51,7 @@ public class DishCategoryController {
      * createDishCategory() method accepts the request for POST
      *
      * @param dishDto
-     * @return ResponseEntity
+     * @return ResponseEntity with created DishCategory DTO
      */
     @PostMapping
     public ResponseEntity createDishCategory(@Valid @RequestBody DishCategoryDto dishDto) {
@@ -62,8 +62,8 @@ public class DishCategoryController {
     /**
      * updateDishCategory() method accepts the request for PUT
      *
-     * @param dishDto
-     * @return ResponseEntity
+     * @param dishDto - id of DishCategory to update
+     * @return ResponseEntity with updated DishCategory DTO
      */
     @PutMapping
     public ResponseEntity updateDishCategory(@Valid @RequestBody DishCategoryDto dishDto) {
@@ -74,7 +74,7 @@ public class DishCategoryController {
     /**
      * deleteDishCategory() method accepts the request for DELETE
      *
-     * @param id
+     * @param id - of DishCategory to be deleted
      * @throws ResourceNotFoundException
      */
     @DeleteMapping(value = "/{id}")

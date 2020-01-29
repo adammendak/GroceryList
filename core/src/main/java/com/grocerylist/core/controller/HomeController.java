@@ -8,6 +8,7 @@ import java.time.LocalTime;
  * @author  Adam Mendak
  * @version 1.0
  * @since   2019-12-03
+ * just a ping controller to check health status of application in production
  */
 @RestController()
 public class HomeController {
