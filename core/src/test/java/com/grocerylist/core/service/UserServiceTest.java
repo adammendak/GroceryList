@@ -10,6 +10,7 @@ import com.grocerylist.repository.UserRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.MockitoAnnotations;
+import org.springframework.test.context.ActiveProfiles;
 
 import java.util.Arrays;
 import java.util.List;
@@ -29,6 +30,7 @@ import static org.mockito.Mockito.*;
  *  This is test class for check if UserService works properly
  *  Contains test method from mockito library
  */
+@ActiveProfiles("dev")
 public class UserServiceTest {
 
     UserService userService;

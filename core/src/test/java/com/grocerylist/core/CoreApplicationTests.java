@@ -3,6 +3,8 @@ package com.grocerylist.core;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.Profile;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 /**
  * @author  Adam Mendak
@@ -10,6 +12,7 @@ import org.springframework.test.context.junit4.SpringRunner;
  * @since   2019-10-06
  */
 @RunWith(SpringRunner.class)
+@ActiveProfiles("dev")
 @SpringBootTest
 public class CoreApplicationTests {
 
