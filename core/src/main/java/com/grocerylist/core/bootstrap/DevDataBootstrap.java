@@ -15,7 +15,8 @@ import org.springframework.stereotype.Component;
  * @author  Adam Mendak
  * @version 1.0
  * @since   2019-12-03
- * This class implements CommandLineRunner.interface
+ * This class implements CommandLineRunner.interface, it loads dummy data if dev profile
+ * is set.
  */
 @Profile("dev")
 @Slf4j

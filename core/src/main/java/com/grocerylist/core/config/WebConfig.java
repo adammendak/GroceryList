@@ -7,6 +7,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * @author  Adam Mendak
  * @version 1.0
  * @since   2020-01-19
+ * this is a configuration class for CORS rules
  */
 @Configuration
 public class WebConfig implements WebMvcConfigurer {

@@ -12,6 +12,7 @@ import javax.sql.DataSource;
  * @author  Adam Mendak
  * @version 1.0
  * @since   2020-01-27
+ * this is datasource configuration for production deployment on heroku to set local postreSql database
  */
 @Configuration
 @Profile(value = "prod")

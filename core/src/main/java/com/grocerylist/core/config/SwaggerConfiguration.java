@@ -12,6 +12,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * @author  Adam Mendak
  * @version 1.0
  * @since   2019-11-09
+ * this is a configuration class that enables Swagger - UI
  */
 @Profile(value = "dev")
 @Configuration
